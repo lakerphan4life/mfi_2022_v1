@@ -1,3 +1,6 @@
+/* RANDOM CSS STYLES */
+ul li {list-style-position: outside;}
+
 /* LINKS */
 .iman__action-link {
   margin-left: 0px;
@@ -183,26 +186,18 @@
 /* END FLEX CLASSES */
 
 
-/* recharge css */
-.rc_popup__block__footer { display: none !important; }
-
-.additional-features-desktop {
-  display: none;
-  margin-left: 25px;
-  
-  @media screen and (min-width: 1440px){
-    display: block;
-    width: 50%;
-    margin-left: 25px;
-  }
-}
-
 
 /* KEY FEATURES */
-
 .additional-features-desktop {
-  display: none;
+  display: block;
+  width: 50%;
   margin-left: 25px;
+}
+
+@media screen and (max-width: 640px) {
+  .additional-features-desktop {
+    display: none;
+  }
 }
 
 .additional-features-mobile {
@@ -234,8 +229,15 @@
   }
 }
 
+/* HEADER POPOVER */
+.myaccount-popover-details {
+  background: var(--secondary-background);
+  border-bottom: 1px solid #ddd;
+  margin: -15px 0 15px;
+  padding: 15px 25px 5px;
+}
 
-/* POPOVER */
+
 @media screen and (min-width: 641px) {
   .popover--help {
     right: 6px;
@@ -309,7 +311,6 @@
   display: none;
 }
 
-
 div.rc_popup__block {
   background: white;
   box-shadow: 0 2px 2px 2px rgba(#000000, 0.06);
@@ -351,7 +352,6 @@ div.rc_popup__block {
   cursor: pointer;
 }
 
-
 div.rc_widget__option--active {
 	 border: 1px solid rgba(0, 68, 158, 0.1);
 	 border-radius: 4px;
@@ -361,12 +361,10 @@ div.rc_widget__option--active {
  div.rc_widget__option--active:hover {
 	 border: 1px solid rgba(0, 68, 158, 1);
 }
- 
 
 .rc_widget__option__selector+.rc_widget__option__plans {
   padding: 5px 0 7px 29px !important;
 }
-
 
 .rc_container {
   border-bottom: 1px solid #f2f2f2;
@@ -389,6 +387,37 @@ div.rc_popup__hover {
 .rc-radio__label {
   margin-left: 4px !important;
 }
+
+/* REVIEWS.IO WIDGET */
+.FloatingWidget-prefix .R-LauncherButton, .FloatingWidget-prefix .FloatingPanel {
+  left: 10px !important;
+  right: auto !important;
+}
+
+.R-Logo {
+  display: none !important;
+}
+
+/* SMILE.iO LAUNCHER */
+.custom-smile-launcher {
+  display: none;
+}
+
+/* PDP Custom CSS Styles */
+.product-gallery-meta {
+  padding: 12px 0;
+}
+
+@media screen and (min-width: 641px) {
+  .product-gallery-meta {
+    padding: 12px 0 0;
+  }
+  .product-gallery-meta h1 {
+    padding: 12px 0;
+  }
+  
+}
+
 
 /* PDP Easytabs Accordion */
 .easytabs-header-text {
@@ -470,3 +499,300 @@ div.rc_popup__hover {
     margin-bottom: 20px;
   }
 }
+
+/* FLITS ACCOUNT */
+.button--extra-small-flits {
+  padding: 0 16px !important;
+  line-height: 48px !important;
+}
+.profile-flex-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.profile-flex-container .grid-item {
+  border: 1px solid #112f4c;
+  border-radius: 6px;
+  text-align: left;
+  padding: 20px 25px;
+}
+.profile-flex-container > div {
+  margin: 0 8px 16px;
+  box-sizing: border-box;
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+}
+.recent-order-grid-item .flits-order-row .flits-order-status-row {
+  border-bottom: 0;
+}
+.recent-order-grid-item .flits-order-row .flits-order-items-row .flits-order-item {
+  border-bottom: 0;
+}
+
+.flits-order-row {
+  border-radius: 6px !important;
+}
+
+.profile-header-icon {
+  margin-right: 10px;
+  width: 40px;
+}
+.profile-header-icon svg {
+  max-width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+.profile-bubble-header {
+  margin-bottom: 16px;
+}
+
+.profile-info-list {
+  list-style: none;
+}
+.profile-info-list li {
+  margin-bottom: 5px;
+}
+.form-field-text {
+  height: 100%;
+  width: 100%;
+  padding: 10px !important;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: transparent;
+  line-height: normal;
+  color: #05182a;
+  -webkit-appearance: none;
+}
+.profile-vip-icon img {
+  max-height: 40px;
+}
+.profile-bubble-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flits-wsl-icon button {
+  font-size: 13px;
+  padding: 0;
+}
+
+.flits-wishlist-product-page {
+  text-align: right;
+}
+
+.flits-add-to-wsl-btn svg, .flits-remove-from-wsl-btn svg {
+  margin-bottom: -2px;
+  margin-right: 5px;
+}
+.profile-promotion-banner {
+  max-height: 120px;
+  margin: 8px 8px 20px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.profile-promotion-banner a img {
+  min-width: 100%;
+}
+
+
+@media screen and (min-width: 1280px) {
+  .flits-pages div[data-type='page'] {
+    padding-left: 20px !important;
+  }
+  .flits-wishlist-product-page {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+  }
+
+}
+
+/* MICRO MODAL CSS */
+/**************************\
+  Basic Modal Styles
+\**************************/
+
+.modal {
+  font-family: var(--text-font-family);
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 0 15px 15px;
+  max-width: 700px;
+  min-width: 300px;
+  max-height: 70vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modal__container .modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-style: var(--heading-font-style);
+  font-size: to-size(22px);
+  line-height: 1.55;
+}
+
+.modal__container .modal__header .modal__close {
+  position: static;
+
+}
+
+.modal__content ul {
+  padding: 10px 10px 10px 20px;
+}
+
+.modal__content ul li {
+  padding-bottom: 10px;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #00449e;
+  box-sizing: border-box;
+}
+
+.modal__close {
+  padding: 9px 14px;
+  border: 0;
+  background: var(--mfi-light-blue);
+  border-radius: 5px;
+}
+
+button[data-micromodal-close] {
+  background-color: var(--mfi-light-blue);
+}
+
+.modal__header .modal__close:before { content: "\2715"; }
+
+.modal__content {
+  font-family: var(--text-font-family);
+  font-weight: var(--text-font-weight);
+  font-style: var(--text-font-style);
+  font-size: var(--base-text-font-size - 1px);
+  line-height: 1.5;
+  color: rgba(0,0,0,.8);
+}
+
+.modal__btn {
+  font-size: .875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  background-color: #e6e6e6;
+  color: rgba(0,0,0,.8);
+  border-radius: 4px;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+  line-height: 1.15;
+  margin: 20px 0 0;
+  will-change: transform;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: -webkit-transform .25s ease-out;
+  transition: transform .25s ease-out;
+  transition: transform .25s ease-out,-webkit-transform .25s ease-out;
+}
+
+.modal__btn:focus, .modal__btn:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.modal__btn-primary {
+  background-color: #00449e;
+  color: #fff;
+}
+
+@keyframes mmfadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+
+@keyframes mmslideIn {
+  from { transform: translateY(15%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes mmslideOut {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10%); }
+}
+
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform;
+}
+
+@media screen and (min-width: 641px) {
+  .modal__overlay {
+    padding: 0 15px;
+  }
+
+  .modal__container {
+      padding: 25px 15px;
+      max-width: 650px;
+      max-height: 80vh;
+  }
+}
+/* END MICRO MODAL CSS */

@@ -166,9 +166,10 @@
             {%- endform -%}
           {%- endif -%}
 
-          {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br>{{ powered_by_link }}{%- endcapture -%}
+          {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}{%- endcapture -%}
           <p class="hidden-pocket">{{ copyright_info }}</p>
         </div>
+        <div class="footer__aside-item footer__aside-item--copyright hidden-lap-and-up"><p style="opacity: 0;font-size: 1px;">Designed by <a style="text-decoration: none;" href="https://imanhamidi.com?utm_source=client&amp;utm_medium=mfi-medical" target="_blank">Iman</a></p></div>
 
         {%- if section.settings.show_social_media -%}
           {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}

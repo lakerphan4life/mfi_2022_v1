@@ -339,9 +339,14 @@
                   {%- if customer -%}
                     <div class="popover__inner popover__inner--no-padding">
                       <div class="popover__linklist">
-                        <a class="popover__link-item" href="{{ routes.account_url }}">{{ 'customer.general.orders' | t }}</a>
-                        <a class="popover__link-item" href="{{ routes.account_addresses_url }}">{{ 'customer.general.addresses' | t }}</a>
-                        <a class="popover__link-item" href="{{ routes.account_logout_url }}" data-no-instant>{{ 'customer.general.logout' | t }}</a>
+                        <div class='myaccount-popover-details'>
+                          <span class=''>You have <span class="sweettooth-points-balance"></span> points</span>
+                        </div>
+                        <a class="popover__link-item" href="{{ routes.account_url }}">Account</a>
+                        <a class="popover__link-item" href="{{ routes.account_url }}#orders">Orders</a>
+                        <a class="popover__link-item" href="{{ routes.account_url }}#wishlist">Saved items</a>
+                        <a class="popover__link-item" href='/account?view=edit'>Edit profile</a>
+                        <a class="popover__link-item" href="{{ routes.account_logout_url }}">Sign out</a>
                       </div>
                     </div>
                   {%- else -%}
@@ -367,6 +372,8 @@
 
                             <button type="submit" class="form__submit button button--primary button--full">{{ 'customer.login.submit' | t }}</button>
                           {%- endform -%}
+
+                          {% if template != 'customers/login' and template != 'customers/register' %}{% render 'iman-flits-social-login' %}{% endif %}
 
                           <div class="popover__secondary-action">
                             <p>{{ 'customer.login.new_customer' | t }} <a href="{{ routes.account_register_url }}" class="link link--accented">{{ 'customer.login.create_your_account' | t }}</a></p>

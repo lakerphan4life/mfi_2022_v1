@@ -31,24 +31,10 @@
 {% render 'flits_snippet' %}
 
 {% comment %} REVIEWS.io floating {% endcomment %}
-<link rel="stylesheet" type="text/css" href="https://widget.reviews.io/floating-widget/css/dist.css">
-<script src="https://widget.reviews.io/rich-snippet-reviews-widgets/dist.js" type="text/javascript"></script>
-
-<script>
-    window.onload = function() {
-    richSnippetReviewsWidgets({
-        store: "mfi-medical",
-        primaryClr: "#ffb00c",
-        widgetName: "floating-widget",
-        numReviews: 20,
-        css: '.vw__footer { display: none !important; }',
-        floatPosition: "left",
-        contentMode: "company;third-party",
-        tabStyle: "normal", 
-        hideDates: false
-    });
-    };
-</script>
+<div id="reviews-io-floating-widget" widget-id="0AtwFOxohUfRb3Yi"
+        store-name="mfi-medical" >
+        </div>
+        <script src='//widget.reviews.io/modern-widgets/floating.js'></script>
 
 {% comment %} KLAVIYO {% endcomment %}
 {% render 'klaviyobis' %}

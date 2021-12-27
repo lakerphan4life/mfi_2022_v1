@@ -61,7 +61,6 @@
     
     document.getElementById('earnpoints').innerHTML = cleanPoints;
   
-  
   });
   
   /* EasyTabs custom */

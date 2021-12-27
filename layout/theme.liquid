@@ -159,5 +159,9 @@
 {% include 'elspw_include' %}
  {% include 'smile-initializer' %}
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'custom-fields-by-product-variant.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'custom-fields-by-product-variant.js' | asset_url }}"></script><![endif]-->
 </body>
 </html>

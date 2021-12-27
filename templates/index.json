@@ -1,0 +1,496 @@
+{
+  "sections": {
+    "16337075127807b04c": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "title": "Image with text overlay",
+        "content": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
+        "show_image_overlay": false,
+        "color": "#ffffff"
+      }
+    },
+    "16337091635bca10ba": {
+      "type": "slideshow",
+      "blocks": {
+        "16337091635bca10ba-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero_6074483b-d9e9-4365-8b61-4036bfe44891.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/mobilehero_d15c13f2-f70f-4813-91ad-83b37098f120.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 15,
+            "text_color": "#ffffff",
+            "title": "Giving you the tools to provide the best patient care",
+            "content": "We offer health care professionals and facilities access to over 50,000 medical products from the industry's top brands",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#05182a",
+            "button_text": "Search our catalog",
+            "link": "https:\/\/mfimedical.com\/search"
+          }
+        }
+      },
+      "block_order": [
+        "16337091635bca10ba-0"
+      ],
+      "settings": {
+        "edge_to_edge": true,
+        "section_size": "large",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 6
+      }
+    },
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon-1": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-delivery",
+            "title": "Free shipping",
+            "content": "<p>On all parcel shipped orders to the contiguous U.S.<\/p>"
+          }
+        },
+        "icon-2": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-returns",
+            "title": "Free returns",
+            "content": "<p>On most items returned within 30 days of receipt<\/p>"
+          }
+        },
+        "icon-3": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "title": "Top-notch support",
+            "content": "<p>We're dedicated to providing the best service in the industry<\/p>"
+          }
+        },
+        "icon-4": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-secure-payment",
+            "title": "Secure payments",
+            "content": "<p>Shop worry-free with our ultra-safe online payment system<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon-1",
+        "icon-2",
+        "icon-3",
+        "icon-4"
+      ],
+      "settings": {
+        "stack_mobile": false
+      }
+    },
+    "16337174683214f376": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "title": "We saved your recently viewed items",
+        "show_quick_buy": true
+      }
+    },
+    "16337079272e511c83": {
+      "type": "collection-list",
+      "blocks": {
+        "16337079272e511c83-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "3m",
+            "link": ""
+          }
+        },
+        "978526a4-7fb6-427e-b158-40f9cedc3fa7": {
+          "type": "collection",
+          "settings": {
+            "collection": "allied-healthcare",
+            "link": ""
+          }
+        },
+        "16337079272e511c83-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "bovie",
+            "link": ""
+          }
+        },
+        "fb75ef7e-a962-48f8-bfae-c003853d8ea1": {
+          "type": "collection",
+          "settings": {
+            "collection": "conmed",
+            "link": ""
+          }
+        },
+        "e5815511-5c39-467b-bd9a-1bc296d2e21d": {
+          "type": "collection",
+          "settings": {
+            "collection": "ge-healthcare",
+            "link": ""
+          }
+        },
+        "7c6f8b57-7b12-4085-932e-8ffd6797e34a": {
+          "type": "collection",
+          "settings": {
+            "collection": "medela",
+            "link": ""
+          }
+        },
+        "16337079272e511c83-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "midmark",
+            "link": ""
+          }
+        },
+        "16337079272e511c83-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "stryker",
+            "link": ""
+          }
+        },
+        "16337079272e511c83-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "tuttnauer",
+            "link": ""
+          }
+        },
+        "16337079272e511c83-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "welch-allyn",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16337079272e511c83-0",
+        "978526a4-7fb6-427e-b158-40f9cedc3fa7",
+        "16337079272e511c83-3",
+        "fb75ef7e-a962-48f8-bfae-c003853d8ea1",
+        "e5815511-5c39-467b-bd9a-1bc296d2e21d",
+        "7c6f8b57-7b12-4085-932e-8ffd6797e34a",
+        "16337079272e511c83-1",
+        "16337079272e511c83-2",
+        "16337079272e511c83-5",
+        "16337079272e511c83-4"
+      ],
+      "settings": {
+        "title": "Shop the top medical brands",
+        "link_title": "View all brands",
+        "link": "shopify:\/\/pages\/brands",
+        "round_images": false,
+        "show_collection_title": true
+      }
+    },
+    "16337198028d4dbaed": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "autoclaves-and-sterilizers",
+        "title": "Top of the line autoclaves & sterilizers",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "ppe",
+        "title": "Personal protective equipment in stock",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all PPE",
+        "link_url": ""
+      }
+    },
+    "163371749015df6788": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "certified-refurbished",
+        "title": "Huge savings on refurbished equipment",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "163372017224b61f82": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "doppler-systems",
+        "title": "Best selling dopplers",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "16337202914c9817aa": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "medical-consumables",
+        "title": "Large selection of medical consumables",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "16337142680d27d6fc": {
+      "type": "collection-list",
+      "blocks": {
+        "3d98d71f-e14c-41ca-a7f0-f26a1da6b749": {
+          "type": "collection",
+          "settings": {
+            "collection": "stretchers",
+            "link": ""
+          }
+        },
+        "16337142680d27d6fc-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "exam-tables",
+            "link": ""
+          }
+        },
+        "a33c3ab7-5457-4b18-b96e-f206347fe58a": {
+          "type": "collection",
+          "settings": {
+            "collection": "sterile-processing",
+            "link": ""
+          }
+        },
+        "16337142680d27d6fc-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "electrosurgical-systems",
+            "link": ""
+          }
+        },
+        "16337142680d27d6fc-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "hospital-beds",
+            "link": ""
+          }
+        },
+        "ed58eb6b-68ec-44a6-98eb-05d3a5872ceb": {
+          "type": "collection",
+          "settings": {
+            "collection": "medical-lights",
+            "link": ""
+          }
+        },
+        "16337142680d27d6fc-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "ambulance-stretchers",
+            "link": ""
+          }
+        },
+        "16337142680d27d6fc-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "audiometers",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "3d98d71f-e14c-41ca-a7f0-f26a1da6b749",
+        "16337142680d27d6fc-4",
+        "a33c3ab7-5457-4b18-b96e-f206347fe58a",
+        "16337142680d27d6fc-2",
+        "16337142680d27d6fc-5",
+        "ed58eb6b-68ec-44a6-98eb-05d3a5872ceb",
+        "16337142680d27d6fc-0",
+        "16337142680d27d6fc-3"
+      ],
+      "settings": {
+        "title": "Popular product categories",
+        "link_title": "View all categories",
+        "link": "shopify:\/\/collections",
+        "round_images": true,
+        "show_collection_title": true
+      }
+    },
+    "16337138970961012f": {
+      "type": "collection-with-image",
+      "disabled": true,
+      "settings": {
+        "collection": "autoclaves-and-sterilizers",
+        "products_count": 8,
+        "show_quick_buy": false,
+        "background": "#ffffff",
+        "text_color": "#05182a",
+        "title": "Autoclaves & sterilizers",
+        "content": "Browse autoclaves and sterilizers from Midmark, Ritter, Pelton & Crane, and Tuttnauer",
+        "button_background": "#ffb00c",
+        "button_text_color": "#05182a",
+        "button_text": "Shop autoclaves",
+        "button_link": ""
+      }
+    },
+    "1633713974d8015550": {
+      "type": "collection-with-image",
+      "disabled": true,
+      "settings": {
+        "collection": "doppler-systems",
+        "products_count": 12,
+        "show_quick_buy": false,
+        "background": "#ffffff",
+        "text_color": "#05182a",
+        "title": "Best selling dopplers",
+        "content": "Check out dopplers from Edan, ArjoHuntleigh, and Summit Doppler",
+        "button_background": "#ffb00c",
+        "button_text_color": "#05182a",
+        "button_text": "Shop dopplers",
+        "button_link": ""
+      }
+    },
+    "1633714356dd5653af": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Untitled-3_1f2256fd-d250-46b4-805c-cc95383c49ca.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Dedicated account managers",
+        "content": "<p>Connect with your dedicated account manager at MFI, and take the hassle out of purchasing medical equipment<\/p>",
+        "button_text": "Find your account manager",
+        "button_link": "shopify:\/\/pages\/find-your-account-manager"
+      }
+    },
+    "1633717483e11e219c": {
+      "type": "promotion-list",
+      "blocks": {
+        "1633717483e11e219c-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-5_75fccce5-f3dd-4bf8-a37f-8055572aaa27.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": true,
+            "background": "#0457c8",
+            "text_color": "#05182a",
+            "title": "Buy now, pay later",
+            "content": "Finance your purchase today",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#05182a",
+            "button_text": "See financing options",
+            "button_link": "shopify:\/\/pages\/financing"
+          }
+        },
+        "1633717483e11e219c-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-4_b99a7316-d37d-460f-8ca2-a3ed5f7cbc96.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": true,
+            "background": "#0457c8",
+            "text_color": "#ffffff",
+            "title": "Manufacturer promotions",
+            "content": "Save big on limited time offers",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#05182a",
+            "button_text": "View specials",
+            "button_link": "shopify:\/\/pages\/medical-equipment-promotions"
+          }
+        }
+      },
+      "block_order": [
+        "1633717483e11e219c-1",
+        "1633717483e11e219c-0"
+      ],
+      "settings": {
+        "expand_items": true,
+        "section_size": "medium",
+        "stack_mobile": true
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "news",
+        "blog_posts_count": 3,
+        "title": "Read trending topics",
+        "link_title": "View all topics",
+        "show_category": true,
+        "show_author": false,
+        "show_date": false,
+        "show_excerpt": false,
+        "stack_mobile": true
+      }
+    },
+    "16337189608d6704bb": {
+      "type": "slideshow",
+      "blocks": {
+        "16337189608d6704bb-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1b_c30300b0-8f3c-41d8-8e20-ef0e6fc6dd24.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Become a member and start earning rewards",
+            "content": "Earn points, get access to exclusive deals, and receive member pricing on select items. Create your free account today, and start earning points!",
+            "content_position": "middle_left",
+            "button_background": "#ffb00c",
+            "button_text_color": "#000000",
+            "button_text": "Sign up for free",
+            "link": "https:\/\/mfimedical.com\/account\/register"
+          }
+        }
+      },
+      "block_order": [
+        "16337189608d6704bb-0"
+      ],
+      "settings": {
+        "edge_to_edge": true,
+        "section_size": "large",
+        "carousel_effect": "slide",
+        "autoplay": false,
+        "cycle_speed": 5
+      }
+    }
+  },
+  "order": [
+    "16337075127807b04c",
+    "16337091635bca10ba",
+    "text-with-icons",
+    "16337174683214f376",
+    "16337079272e511c83",
+    "16337198028d4dbaed",
+    "featured-collection",
+    "163371749015df6788",
+    "163372017224b61f82",
+    "16337202914c9817aa",
+    "16337142680d27d6fc",
+    "16337138970961012f",
+    "1633713974d8015550",
+    "1633714356dd5653af",
+    "1633717483e11e219c",
+    "blog-posts",
+    "16337189608d6704bb"
+  ]
+}

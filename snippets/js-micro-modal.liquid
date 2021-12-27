@@ -1,0 +1,20 @@
+<!--   MICRO MODALS   -->
+{% if template.name == 'product' %}
+{% render "modal-pricematch" %}
+{% render "modal-financing" %}
+{% render "modal-leadtime" %}
+{% render "modal-memberpricing" %}
+{% render "modal-warranty" %}
+{% render "modal-condition" %}
+{% endif %}
+
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script>
+  MicroModal.init({
+
+    disableScroll: true,
+    disableFocus: true
+
+  });
+</script>
+

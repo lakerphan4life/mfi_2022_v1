@@ -1,0 +1,50 @@
+{%- comment -%}
+--------------------------------------------------------------------------------------
+SECURITY BADGES
+--------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+{%- assign show_payment_icons = true -%}
+{%- else -%}
+{%- assign show_payment_icons = false -%}
+{%- endif -%}
+
+{%- if section.settings.custom_security_badge or show_payment_icons -%}
+<div class="product-block-list__item product-block-list__item--trust">
+  <div class="card">
+    <div class="card__header card__header--flex">
+      <h2 class="card__title heading h5">We accept</h2>
+    </div>
+
+    <div class="card__section">
+      {%- if show_payment_icons -%}
+      {%- if section.settings.custom_security_badge -%}
+      <p class="card__subtitle heading h6">{{ 'product.general.payment' | t }}</p>
+      {%- endif -%}
+
+      <div class="payment-list">
+        {% for type in shop.enabled_payment_types %}
+        {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+        {% endfor %}
+      </div>
+
+<!--       <p class="payment-list__notice">{{ 'product.general.payment_notice' | t }}</p> -->
+      {%- endif -%}
+
+      {%- if show_payment_icons and section.settings.custom_security_badge -%}
+      <hr class="card__separator">
+      {%- endif -%}
+
+      {%- if section.settings.custom_security_badge -%}
+      {%- if show_payment_icons -%}
+      <p class="card__subtitle heading h6">{{ 'product.general.security' | t }}</p>
+      {%- endif -%}
+
+      {%- assign badge_width = section.settings.custom_security_badge.width | at_most: 450 | append: 'x' -%}
+      <img class="product__trust-badge" src="{{ section.settings.custom_security_badge | img_url: badge_width }}" srcset="{{ section.settings.custom_security_badge | img_url: badge_width }} 1x, {{ section.settings.custom_security_badge | img_url: badge_width, scale: 2 }} 2x" alt="{{ section.settings.custom_security_badge.alt | escape }}">
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}

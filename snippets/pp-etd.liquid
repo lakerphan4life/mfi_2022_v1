@@ -1,0 +1,17 @@
+<!-- lead time -->
+{% for tag in product.tags %}
+{% if tag contains "lead-time" %}
+{% assign leadtimetag = tag %}
+<div class='' style='font-size: 14px; color: inherit;margin-top: 20px;line-height: 1;display: none; align-items: center;'>
+  <a href='#.' class='modal-open-link' style="display: flex; align-items: center;"  id='itemleadtime' data-leadtimetag='{{ leadtimetag }}' data-micromodal-trigger="modal-leadtime">Handling time</a><span style='text-transform: lowercase;'>: {{ settings[tag] }}</span>
+</div>
+{% endif %} 
+{% endfor %}
+<!-- <p id='etdContainer' style="text-align: left; font-size: 14px;display: block;">
+  <a href='#.' class='modal-open-link' data-micromodal-trigger="modal-delivery"><strong>Delivery:</strong></a> estimated between <span id="fromDate"></span> and <span id="toDate"></span>
+</p> -->
+
+
+<p id='etdContainer' style="text-align: left; font-size: 14px;display: block;">
+  <a href='#.' class='modal-open-link' data-micromodal-trigger="modal-delivery"><strong>Delivery:</strong></a> estimated between {{ product.metafields.custom_fields["variant_etd"] }}
+</p>

@@ -1,0 +1,155 @@
+<!-- Show List price -->
+<!-- Show Our Price -->
+<!-- Show the Savings -->
+<!-- Free Shipping and Free Returns - or do we want this near ATC??? -->
+<!-- Show financing monthly price -->
+<!-- show shipping estimator if not free shipping -->
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+{% for tag in product.tags %}
+{% if tag contains "memberprice5" %}
+{% assign memberpriceboolean = true %}
+{% assign memberprice = selected_variant.price | times: 0.95 | money %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% assign vizient = false %}
+{% for tag in product.tags %}
+{% if tag contains "vizientgpo" %}
+{% assign vizient = true %}{% break %}
+{% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains "vizient" %}
+{% assign vizient_discount = tag | remove: "vizient" %}{% break %}
+{% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains "Sale_" %}
+{% assign saletitle = tag | remove: "Sale_" %}{% break %}
+{% endif %}
+{% endfor %}
+
+
+
+<!-- HC Fixing issues on price 16 Apr '20 -->
+<div class="product-form__price-info" style="display: {% if selected_variant.unit_price_measurement %}block{% else %}none{% endif %};">
+  <div class="unit-price-measurement">
+    <span class="unit-price-measurement__price">{{ selected_variant.unit_price | money_without_trailing_zeros }}</span>
+    <span class="unit-price-measurement__separator">/ </span>
+
+    {%- if selected_variant.unit_price_measurement.reference_value != 1 -%}
+    <span class="unit-price-measurement__reference-value">{{ selected_variant.unit_price_measurement.reference_value }}</span>
+    {%- endif -%}
+
+    <span class="unit-price-measurement__reference-unit">{{ selected_variant.unit_price_measurement.reference_unit }}</span>
+  </div>
+</div>
+
+<div class='pp-price-container' style='' data-vizient="{{vizient}}" data-vizientdiscount='{{ vizient_discount }}' data-memberprice='{{ memberpriceboolean }}'>
+  <div class='flex-col ai-fs' style='width: 100%; margin: 0; padding: 0px;line-height: 1;'>
+
+    <div class='flex-row ai-c jc-spb hc-price-compare-wrapper' style='font-size: 12px; padding-bottom: 8px;{% if selected_variant.compare_at_price > selected_variant.price %}display:flex{% else %}display:none;{% endif %}'>
+      <div style='margin-right: 20px;'>
+        <span class='' style=''>List Price: &nbsp;</span>
+      	<span class="price price--compare hc-price-compare" style='font-size: 12px;'>{{ selected_variant.compare_at_price | money_without_trailing_zeros }}</span>
+      </div>
+      <div class='flex-row ai-c jc-c hc-savings-wrapper' style='font-size: 15px; display:{% if selected_variant.compare_at_price > selected_variant.price %}block{% else %}none{% endif %};'>
+        <span class="product-label product-label--on-sale" style='display: none'>Save <span class="hc-savings" style=''>{{ selected_variant.compare_at_price | minus: selected_variant.price | money_without_trailing_zeros }}</span></span>
+      </div>
+    </div>
+    
+    <div class='flex-row ai-fe jc-c' style=''>
+      <span class='hc-current-price-title product-form__option-name text--strong' style='display:inline-block;'>Price: &nbsp;</span>
+      <span class="price price--highlight hc-current-price">{{ selected_variant.price | money_without_trailing_zeros }}</span>
+    </div>
+    
+    {% if memberpriceboolean or vizient %}
+    <hr class="card__separator">
+    {% endif %}
+    <!--             <div class='specialoffers-heading'>
+<span class="product-form__option-name text--strong">Special Offers</span>
+</div> -->
+    <div class='flex-row ai-fe jc-c hc-memberprice-wrapper' style='line-height: 1.6;font-size: 16px; display:{% if memberpriceboolean %}block{% else %}none{% endif %};'>
+      {% if customer %}
+      {% render 'icon', icon: 'saletag' %} <span  class='modal-open-link' data-micromodal-trigger="modal-memberpricing">Your Member Price</span>:
+      {% else %}
+      {% render 'icon', icon: 'saletag' %} <span  class='modal-open-link' data-micromodal-trigger="modal-memberpricing">MFI Member Price</span>:
+      {% endif %}
+      <span class="price price--highlight hc-memberprice-price" style='font-size: 22px;'>{{ selected_variant.price | times: 0.95 | money_without_trailing_zeros }}</span>
+    </div>
+
+
+    <div class='flex-row ai-fe jc-c hc-vizient-wrapper' style='line-height: 1.6;font-size: 16px; display:{% if vizient %}block{% else %}none{% endif %};'>
+      {% render 'icon', icon: 'saletag' %} <span class='modal-open-link' style='' data-micromodal-trigger="modal-vizient">Vizient Price: </span>
+      <span class="price price--highlight hc-vizient-price" style='font-size: 22px;'>
+        {% for tag in product.tags %}
+        {% if tag contains "vizient5" %}{{ selected_variant.price | times: 0.95 | money_without_trailing_zeros }}</span>
+      {% elsif tag contains "vizient10" %}{{ selected_variant.price | times: 0.90 | money_without_trailing_zeros }}</span>
+    {% elsif tag contains "vizient15" %}{{ selected_variant.price | times: 0.85 | money_without_trailing_zeros }}</span>
+  {% else %}
+  {% endif %}
+  {% endfor %}
+</div>
+
+</div>
+
+</div>
+
+
+
+<hr class="card__separator">
+<!--   SPECIAL OFFERS -->
+<div class='specialoffers-section'>
+  <div class='specialoffers-heading'>
+    <span class="product-form__option-name text--strong">Special Offers</span>
+  </div>
+  <div class='specialoffers-list'>
+    <ul>
+      {% if product.metafields.custom_fields["custom_discount"] != blank %}
+      <li><p class='modal-open-link text-left' style='cursor: default !important;text-decoration: none !important;'><span data-tooltip="Enter the code at checkout for savings">{{ product.metafields.custom_fields["custom_discount"] }}</span></p></li>
+      {% endif %}
+      
+      <li onclick="ga('send', 'event', 'PDP Links', 'click', 'Rewards Modal');" data-tooltip="Click for more information" class='modal-open-link' data-micromodal-trigger="modal-earnpoints">Earn <strong><span id='earnpoints'>{{ selected_variant.price | times: 0.01 | round  }}</span> points</strong> on this item as an MFI member!</li>
+      
+      {% if selected_variant.price  > 99999 %}
+      <li>
+        <form action="" method="post" id="product_info">
+          <input type="hidden" name="prices[]" value="{{ selected_variant.price | money_without_currency }}">
+          <p>
+            <a onclick="ga('send', 'event', 'PDP Links', 'click', 'Marlin Financing');" href="https://apply.marlincapitalsolutions.com/auth/EF?partnerid=800633154BEWAAI%20&apiKey=8006331558" id="financelink_1" target="_blank" data-tooltip="Click to apply for financing" class="financelink modal-open-link">
+              <span style='font-weight: 600;' id='financemonthly'>${{ selected_variant.price | times: 0.02125 | money_without_currency }}</span><span>/month</span>
+              <span> with special financing</span>
+            </a><a href='#.' onclick="ga('send', 'event', 'PDP Links', 'click', 'Financing Modal');" class='modal-open-link' data-micromodal-trigger="modal-financing"><span style='margin-left: 2px;opacity: 0.8;font-size: 12px;'>(more details)</span></a>
+          </p>
+        </form>
+        {% render "marlin" %}
+      </li>
+      {% endif %}
+
+      {% for tag in product.tags %}
+      {% if tag contains "Sale_" %}
+      {% assign saletitle = tag | remove: "Sale_" %}
+      <li><a onclick="ga('send', 'event', 'PDP Links', 'click', 'Specials Page');" data-tooltip="Click to be taken to the specials page" href='https://mfimedical.com/pages/medical-equipment-promotions#sale_{{ saletitle | handleize }}' target="_blank" class='modal-open-link'>{{ saletitle }}</a></li>
+      {% endif %}
+      {% endfor %}
+
+      {% if memberpriceboolean %}
+<!--       <div class='flex-row ai-fe jc-c' style='display:{% if memberpriceboolean %}block{% else %}none{% endif %};'>
+        <span class='modal-open-link modal-memberpricing member-price-title' id='member-price-text' data-micromodal-trigger="modal-memberpricing">Sign up to get member pricing and earn rewards!</span>
+      </div> -->
+      {% endif %}
+
+      {% if vizient %}
+      <div class='flex-row ai-fe jc-c' style='display:{% if vizient %}block{% else %}none{% endif %};'>
+        <span onclick="ga('send', 'event', 'PDP Links', 'click', 'Vizient Modal');" data-tooltip="Click for more information" class='modal-open-link modal-vizient vizient-gpo-title' data-micromodal-trigger="modal-vizient">Save <span>{{ vizient_discount }}%</span> when you qualify for Vizient GPO</span>
+      </div>
+      {% endif %}
+
+
+    </ul>
+  </div>
+</div>

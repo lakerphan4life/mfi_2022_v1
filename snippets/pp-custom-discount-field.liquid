@@ -1,0 +1,6 @@
+{% if product.metafields.custom_fields["custom_discount"] != blank %}
+
+<div class='custom-discount-banner'>
+  <p><span class='hidden-pocket'></span>{{ product.metafields.custom_fields["custom_discount"] }}</p>
+</div>
+{% endif %}

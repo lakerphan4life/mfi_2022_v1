@@ -1,0 +1,11 @@
+<!-- lead time -->
+{% if settings.display_lead_time %} 
+{% for tag in product.tags %}
+{% if tag contains "lead-time" %}
+{% assign leadtimetag = tag %}
+<div class='' style='font-size: 14px; color: inherit;margin-top: 20px;line-height: 1;display: flex; align-items: center;'>
+  <a href='#.' class='modal-open-link' style="display: flex; align-items: center;"  id='itemleadtime' data-leadtimetag='{{ leadtimetag }}' data-micromodal-trigger="modal-leadtime">Handling time</a><span style='text-transform: lowercase;'>: {{ settings[tag] }}</span>
+</div>
+{% endif %} 
+{% endfor %}
+{% endif %}

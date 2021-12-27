@@ -1,0 +1,71 @@
+{% assign kf_1 = product.metafields.custom_fields["key_feature_1"] %}
+{% assign kf_2 = product.metafields.custom_fields["key_feature_2"] %}
+{% assign kf_3 = product.metafields.custom_fields["key_feature_3"] %}
+{% assign kf_4 = product.metafields.custom_fields["key_feature_4"] %}
+<!-- Sterilizer KF -->
+{% assign sterilizer_type = product.metafields.custom_fields["sterilizer_type"] %}
+{% assign sterilizer_technology = product.metafields.custom_fields["sterilizer_technology"] %}
+{% assign sterilizers_door = product.metafields.custom_fields["sterilizers_door"] %}
+{% assign sterilizer_trays = product.metafields.custom_fields["sterilizer_trays"] %}
+{% assign sterilizers_volume = product.metafields.custom_fields["sterilizers_volume"] %}
+{% assign sterilizer_printer = product.metafields.custom_fields["sterilizer_printer"] %}
+{% assign sterilizer_cycle_time = product.metafields.custom_fields["sterilizer_cycle_time"] %}
+
+{% for tag in product.tags %}
+  	{% if tag contains 'Volume_' %}
+    	{% capture volume %}{{ tag | remove: 'Volume_' }}{% endcapture %}
+	{% endif %}
+  	{% if tag contains 'Technology_' %}
+    	{% capture technology %}{{ tag | remove: 'Technology_' }}{% endcapture %}
+	{% endif %}
+  	
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains 'non-returnable' %}
+{% assign nonreturnable = 1 %}{% break %}
+{% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains 'Prescription' %}
+{% assign prescription = 1 %}{% break %}
+{% endif %}
+{% endfor %}
+
+<div class='flex-col'>
+  <div class="kf-content">
+    <span class="product-form__option-name text--strong h4" style='margin-bottom: 10px;margin-left: -15px;'>Key Features</span>
+    <ul class="kf-ul">
+      <!--       CORONAVIRUS UPDATE       -->
+      {% for tag in product.tags %}
+      {% if tag contains "COVID" %}
+      <li class='text--strong' data-micromodal-trigger="modal-covid" data-tooltip="Click for more information">
+        <em>This item may be affected by COVID-19</em>
+      </li>
+      {% endif %}
+      {% endfor %}
+      {% if kf_1 != blank %}<li>{{ kf_1 }}</li>{% endif %}
+      {% if kf_2 != blank %}<li>{{ kf_2 }}</li>{% endif %}
+      {% if kf_3 != blank %}<li>{{ kf_3 }}</li>{% endif %}
+      {% if kf_4 != blank %}<li>{{ kf_4 }}</li>{% endif %}
+      {% if nonreturnable == 1 %}<li>This item is non-returnable</li>{% endif %}
+      {% if prescription == 1 %}<li><strong>Intended for professional use only</strong>. Purchase of this item requires a medical license or a prescription from a licensed physician.</li>{% endif %}
+      
+
+      {% if volume %}<li><span class='text--strong'>Volume: </span>{{ volume }}</li>{% endif %}
+      {% if technology %}<li><span class='text--strong'>Technology: </span>{{ technology }}</li>{% endif %}
+      <li>
+        <span class='text--strong'>Condition:</span> 
+        
+        {% render 'variant-condition' %}
+        
+      </li>
+      <li>
+        <span class='text--strong' data-tooltip="Click for more information" data-micromodal-trigger="modal-warranty">Warranty:</span> {% render 'variant-warranty' %}
+      </li>
+
+      {% render 'jumpto_pdp_v2' %}
+    </ul>
+  </div>
+</div>

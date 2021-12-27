@@ -1,0 +1,136 @@
+<!-- original theme fonts -->
+{%- assign heading_font_italic = settings.heading_font | font_modify: 'style', 'italic' -%}
+
+{%- assign text_font_medium = settings.text_font | font_modify: 'weight', '500' -%}
+{%- assign text_font_semibold = settings.text_font | font_modify: 'weight', '600' -%}
+{%- assign text_font_bold = settings.text_font | font_modify: 'weight', 'bolder' -%}
+{%- assign text_font_italic = settings.text_font | font_modify: 'style', 'italic' -%}
+{%- assign text_font_bold_italic = text_font_bold | font_modify: 'style', 'italic' -%}
+
+{%- assign text_font_bolder_weight = 'bolder' -%}
+
+<link rel="stylesheet" href="https://use.typekit.net/bxa8byu.css">
+
+<style>
+ @font-face {
+   font-family: 'felix';
+   font-weight: 600;
+   font-style: normal;
+   src: url('{{ "Fellix-SemiBold.woff2" | asset_url }}') format('woff2');
+     }
+  
+  @font-face {
+    font-family: 'felix';
+    font-weight: 400;
+    font-style: normal;
+    src: url('{{ "Fellix-Light.woff2" | asset_url }}') format('woff2');
+      }
+
+  :root {
+    --default-text-font-size : 15px;
+    --base-text-font-size    : {{ settings.base_text_font_size }}px;
+    --heading-font-family    : felix, {{ settings.heading_font.fallback_families }};
+    --heading-font-weight    : 600;
+    --heading-font-style     : normal;
+    --text-font-family       : rig-sans, {{ settings.text_font.fallback_families }};
+    --text-font-weight       : 400;
+    --text-font-style        : normal;
+    --text-font-bolder-weight: 600;
+    --text-link-decoration   : {% if settings.underline_links %}underline{% else %}normal{% endif %};
+
+      --mfi-orange               : {{ settings.mfi_orange }};
+      --mfi-link-blue               : {{ settings.mfi_link_blue }};
+      --mfi-link-blue-hover               : {{ settings.mfi_link_blue | color_darken: 15 }};
+      --mfi-darkblue               : {{ settings.mfi_darkblue }};
+      --mfi-yellow               : {{ settings.mfi_yellow }};
+      --mfi-heading-blue               : {{ settings.mfi_heading_blue }};
+      --mfi-text-color               : {{ settings.mfi_text_grey }};
+      --mfi-light-blue               : {{ settings.mfi_light_blue }};
+      --mfi-light-blue-rgb               : {{ settings.mfi_light_blue | color_extract: 'red' }}, {{ settings.mfi_light_blue | color_extract: 'green' }}, {{ settings.mfi_light_blue | color_extract: 'blue' }};
+      --white-color               : {{ settings.mfi_white }};
+      --black-color               : {{ settings.mfi_black }};
+    
+    --text-color               : {{ settings.mfi_text_grey }};
+    --text-color-rgb           : {{ settings.mfi_text_grey | color_extract: 'red' }}, {{ settings.text_color | color_extract: 'green' }}, {{ settings.text_color | color_extract: 'blue' }};
+    --heading-color            : {{ settings.mfi_heading_blue }};
+    --border-color             : {{ settings.mfi_border_grey }};
+    --border-color-rgb         : {{ settings.mfi_border_grey | color_extract: 'red' }}, {{ settings.border_color | color_extract: 'green' }}, {{ settings.border_color | color_extract: 'blue' }};
+    --form-border-color        : {{ settings.mfi_border_grey | color_darken: 5 }};
+    --accent-color             : {{ settings.accent_color }};
+    --accent-color-rgb         : {{ settings.accent_color | color_extract: 'red' }}, {{ settings.accent_color | color_extract: 'green' }}, {{ settings.accent_color | color_extract: 'blue' }};
+    --link-color               : {{ settings.mfi_link_blue }};
+    --link-color-hover         : {{ settings.mfi_link_blue | color_darken: 15 }};
+    --background               : {{ settings.background }};
+    --secondary-background     : {{ settings.secondary_background }};
+      --tertiary-background     : {{ settings.tertiary_background }};
+    --secondary-background-rgb : {{ settings.secondary_background | color_extract: 'red' }}, {{ settings.secondary_background | color_extract: 'green' }}, {{ settings.secondary_background | color_extract: 'blue' }};
+      --tertiary-background-rgb : {{ settings.tertiary_background | color_extract: 'red' }}, {{ settings.tertiary_background | color_extract: 'green' }}, {{ settings.tertiary_background | color_extract: 'blue' }};
+    --accent-background        : {{settings.accent_color | color_modify: 'alpha', 0.08 }};
+
+    --input-background: {% if settings.secondary_background == settings.text_color %}{% else %}{{ settings.secondary_background }}{% endif %};
+
+    --error-color       : {{ settings.error_color }};
+    --error-background  : {{ settings.error_color | color_modify: 'alpha', 0.07 }};
+    --success-color     : {{ settings.success_color }};
+    --success-background: {{ settings.success_color | color_modify: 'alpha', 0.11 }};
+
+    --primary-button-background      : {{ settings.primary_button_background }};
+    --primary-button-background-rgb  : {{ settings.primary_button_background | color_extract: 'red' }}, {{ settings.primary_button_background | color_extract: 'green' }}, {{ settings.primary_button_background | color_extract: 'blue' }};
+    --primary-button-text-color      : {{ settings.primary_button_text_color }};
+    --secondary-button-background    : {{ settings.secondary_button_background }};
+    --secondary-button-background-rgb: {{ settings.secondary_button_background | color_extract: 'red' }}, {{ settings.secondary_button_background | color_extract: 'green' }}, {{ settings.secondary_button_background | color_extract: 'blue' }};
+    --secondary-button-text-color    : {{ settings.secondary_button_text_color }};
+
+    --header-background      : {{ settings.header_background }};
+    --header-text-color      : {{ settings.header_text_color }};
+    --header-light-text-color: {{ settings.header_light_text_color }};
+    --header-border-color    : {{ settings.header_light_text_color | color_modify: 'alpha', 0.30 }};
+    --header-accent-color    : {{ settings.header_accent_color }};
+
+    --footer-background-color:    {{ settings.footer_background_color }};
+    --footer-heading-text-color:  {{ settings.footer_heading_text_color }};
+    --footer-body-text-color:     {{ settings.footer_body_text_color }};
+    --footer-body-text-color-rgb: {{ settings.footer_body_text_color | color_extract: 'red' }}, {{ settings.footer_body_text_color | color_extract: 'green' }}, {{ settings.footer_body_text_color | color_extract: 'blue' }};
+    --footer-accent-color:        {{ settings.footer_accent_color }};
+    --footer-accent-color-rgb:    {{ settings.footer_accent_color | color_extract: 'red' }}, {{ settings.footer_accent_color | color_extract: 'green' }}, {{ settings.footer_accent_color | color_extract: 'blue' }};
+    --footer-border:              {% if settings.footer_background_color == settings.background %}1px solid var(--border-color){% else %}none{% endif %};
+    
+    --flickity-arrow-color: {{ settings.border_color | color_darken: 20 }};
+
+    {%- assign product_on_sale_lightness = settings.product_on_sale_accent | color_extract: 'lightness' -%}
+    {%- assign product_custom_label_1_lightness = settings.product_label_1_background | color_extract: 'lightness' -%}
+    {%- assign product_custom_label_2_lightness = settings.product_label_2_background | color_extract: 'lightness' -%}
+
+    --product-on-sale-accent           : {{ settings.product_on_sale_accent }};
+    --product-on-sale-accent-rgb       : {{ settings.product_on_sale_accent | color_extract: 'red' }}, {{ settings.product_on_sale_accent | color_extract: 'green' }}, {{ settings.product_on_sale_accent | color_extract: 'blue' }};
+    --product-on-sale-color            : {% if product_on_sale_lightness < 65 %}#ffffff{% else %}#000000{% endif %};
+    --product-in-stock-color           : {{ settings.product_in_stock_color }};
+    --product-low-stock-color          : {{ settings.product_low_stock_color }};
+    --product-sold-out-color           : {{ settings.product_sold_out_color }};
+    --product-custom-label-1-background: {{ settings.product_label_1_background }};
+    --product-custom-label-1-color     : {% if product_custom_label_1_lightness < 65 %}#ffffff{% else %}#000000{% endif %};
+    --product-custom-label-2-background: {{ settings.product_label_2_background }};
+    --product-custom-label-2-color     : {% if product_custom_label_2_lightness < 65 %}#ffffff{% else %}#000000{% endif %};
+    --product-review-star-color        : {{ settings.product_star_color }};
+
+    --mobile-container-gutter : 20px;
+    --desktop-container-gutter: 40px;
+
+    /* Shopify related variables */
+    --payment-terms-background-color: {{ settings.background }};
+  }
+</style>
+
+<script>
+  // IE11 does not have support for CSS variables, so we have to polyfill them
+  if (!(((window || {}).CSS || {}).supports && window.CSS.supports('(--a: 0)'))) {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2';
+    script.onload = function() {
+      cssVars({});
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+</script>

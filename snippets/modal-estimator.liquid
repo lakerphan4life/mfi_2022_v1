@@ -1,0 +1,62 @@
+<div class="modal micromodal-slide" id="modal-estimator" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-estimator-title">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-estimator-title">
+          Estimate Shipping Cost
+        </h2>
+        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+      </header>
+      <main class="modal__content" id="modal-estimator-content">
+        <div class="product-block-list__item product-block-list__item--shipping">
+          <div class="card">
+            <div class="card__header">
+              <h2 class="card__title heading h3">{{ 'product.general.estimate_shipping' | t }}</h2>
+            </div>
+
+            <div class="card__section">
+              <div class="shipping-estimator form">
+                <div class="form__input-row">
+                  <div class="form__input-wrapper">
+                        <label for="shipping-estimator-country" class="form__label">{{ 'cart.shipping_estimator.country' | t }}</label>
+
+                        <div class="select-wrapper select-wrapper--primary">
+                          {%- render 'icon', icon: 'arrow-bottom' -%}
+
+                          <select name="country" id="shipping-estimator-country" data-default="{{ customer.default_address.country | default: section.settings.shipping_estimator_default_country }}" required>
+                            {{- country_option_tags -}}
+                          </select>
+                        </div>
+                      </div>
+
+                  <div class="form__input-wrapper">
+                    <label for="shipping-estimator-province" class="form__label">{{ 'cart.shipping_estimator.province' | t }}</label>
+
+                    <div class="select-wrapper select-wrapper--primary">
+                      {%- render 'icon', icon: 'arrow-bottom' -%}
+
+                      <select name="province" id="shipping-estimator-province" data-default="{{ customer.default_address.province }}"></select>
+                    </div>
+                  </div>
+
+                  <div class="form__input-wrapper" style="max-width: 155px">
+                    <label for="shipping-estimator-zip" class="form__label">{{ 'cart.shipping_estimator.zip_code' | t }}</label>
+                    <input type="text" name="zip" id="shipping-estimator-zip" class="form__field form__field--text" value="{{ customer.default.address.zip }}" required>
+                  </div>
+                </div>
+
+                <button type="button" class="form__submit button button--primary" data-action="estimate-shipping">{{ 'cart.shipping_estimator.estimate' | t }}</button>
+
+                <div class="shipping-estimator__results rte" style="display: none;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+      <footer class="modal__footer">
+        <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+      </footer>
+    </div>
+  </div>
+</div>

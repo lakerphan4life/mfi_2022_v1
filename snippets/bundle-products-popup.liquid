@@ -1,0 +1,125 @@
+<div id="bundle-products-popup-container">
+  <div id="bundle-products-popup-overlay"></div>
+  <div id='bundle-products-popup-box'>
+    <div id="bundle-products-close-x">+</div>
+
+    <div class='bundle-products-popup-content'>
+                  
+      <div class='bundle-products-popup-content-headline'>        
+        <p class='bundle-products-heading'>
+          
+          <b> Bundle products </b>
+        </p>
+        
+        <p class='bundle-products-sub-heading'>
+          
+         <b>{{ product.title }}</b> bundle products
+        </p>
+        
+      </div>
+      
+       {% if product.metafields.product["bundle_products"] != blank %}
+	{% assign bundle_products_array = product.metafields.product["bundle_products"] | remove: " " | split: "," %}
+		{%
+          render 'bundle-products',
+          product: product,
+          selected_variant: selected_variant,
+          bundle_products_array: bundle_products_array,
+          suffix: "popup"
+      	%}
+            
+      <div class="product-form--atc">
+      
+      <button data-action="add-to-cart" class="product-form--popup-button product-form--atc-button1 tooltip-atc button button--primary product-form__add-button" type="button" data-product-atc="" data-tooltip1="You must select an option before adding this item to your cart">
+        <span class="atc-button--text">Add to cart </span>
+      </button>
+            
+      </div>
+      
+    {% endif %}
+                  
+    </div>    
+
+  </div>
+</div>
+
+
+
+<script>
+  (function(){
+        
+    $('#bundle-products-popup-container').detach().appendTo('body');
+    
+    {%comment%}
+    {% if settings.cart_type == "page" %}
+    function showBundleProductsPopup() { 
+
+      if($("#bundle-products-popup-container").is(":hidden")) {
+
+        $("#bundle-products-popup-container").show();
+      }
+      return false;
+    } 
+
+    function hideBundleProductsPopup() { 
+
+      if($("#bundle-products-popup-container").is(":visible")) {
+
+        $("#bundle-products-popup-container").find("input:checkbox").prop("checked", false);
+        $(".bundle-input-select:checkbox").prop("checked", false);
+        
+        $("#bundle-products-popup-container").hide();
+        
+        
+      }
+
+      return false;
+    } 
+
+    $(document).on("click", ".product-form__add-button, .product-form--atc-button", function(e) {
+
+      e.preventDefault();
+
+      let bundleProductsChosen = $("input.bundle-input-select:checked").length;
+
+      let $addToCartForm = $("form[action='/cart/add' data-productid='{{ product.id }}']");
+
+      if($(this).hasClass("product-form--popup-button")) {            	
+
+        $addToCartForm.submit();
+        hideBundleProductsPopup();
+
+      } else {
+
+        if(bundleProductsChosen) {
+
+          $addToCartForm.submit();
+          hideBundleProductsPopup();
+
+        } else {
+
+          showBundleProductsPopup();
+        }
+
+      }
+
+    });
+
+
+    $(document).on("click", "#bundle-products-popup-overlay", function() {
+
+      hideBundleProductsPopup();
+
+    });
+
+    $(document).on("click", "#bundle-products-close-x", function() {
+
+      hideBundleProductsPopup();
+
+    });
+    
+    {% endif %} 
+    {%endcomment%}
+  })();
+
+</script>

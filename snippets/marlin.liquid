@@ -1,0 +1,32 @@
+
+<script>
+  function callLEASEREPAPI(){
+    var requri   = 'https://www.leaserep.com/public_api/v1/quotes2';
+    var datavalue = {totalCost :"{{ product.price | money_without_currency }}"};
+                     $.ajax({
+                     type: 'POST',
+                     url: requri,
+                     headers: { 'Marlin-API-Key': 'dec5f595-03f5-43cc-bba1-72c899ac1130' },
+        data: JSON.stringify(datavalue), 
+          contentType: "application/json",
+            success: function(json){
+              thtml = "";
+              if (json['meta']) {
+                if(json['meta']['code'] == 200){
+                  for (i = 0; i<json['result']['payments'].length; i++) {
+                    for (j = 0; j <json['result']['payments'][i]['options'].length; j++) {
+                      if(json['result']['payments'][i]['options'][j]['rates'] != null &&json['result']['payments'][i]['options'][j]['rates'] != ""){
+                        thtml+= json['result']['payments'][i]['options'][j]['rates'][0]['paymentDisplay'];$('#financeamount_1').html('' + thtml + ' / month');$("#financelink_1").attr("href", json['result']['payments'][i]['options'][j]['rates'][0]['href'] + ' &apiKey=8006331558');
+                      }
+                    }
+                  }
+                }else{
+                  $('#financeamount_1').html('' + json['meta']['message']);
+                }
+              }}
+  });
+  }
+</script>
+
+
+

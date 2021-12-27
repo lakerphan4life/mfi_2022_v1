@@ -1,0 +1,55 @@
+<li class='jumpto-container hide'>
+  <p id='jumptotext'><span class='text--strong'>Learn more:</span> </p>
+</li>
+
+<script>
+  (function(){
+    setTimeout(function(){
+      const tablist = document.querySelector('.easytabs-contents').children;
+      const tabArr = [];
+      for(var i=0;i < tablist.length; i++) {
+        const arrValue = tablist[i];
+        tabArr.push(arrValue);
+      }
+      
+      const buttonArray = [];
+      for (var i=0;i < tabArr.length; i++) {
+        if (tabArr[i].classList.contains('easytabs-active')) {
+          var currentTab = tabArr[i];
+        }
+        const buttonArrayText = tabArr[i].dataset.etHandle.slice(5);
+        const buttonElement = document.createElement('span');
+        if (i === tabArr.length - 1) {
+          buttonElement.innerHTML = buttonArrayText;
+        } else {
+          buttonElement.innerHTML = buttonArrayText + ", ";
+        }
+        buttonElement.classList.add('modal-open-link');
+        buttonElement.setAttribute("onclick","ga('send', 'event', 'PDP Links', 'click', 'Jump to link');");
+        buttonElement.id = 'tab_' + i.toString();
+        buttonArray.push(buttonElement);
+      }
+      
+      console.log("buttonArray is " + buttonArray);
+      
+      var jumpToText = document.getElementById('jumptotext');
+      
+      for (var i=0;i < buttonArray.length; i++) {
+        jumpToText.append(buttonArray[i]);
+
+        buttonArray[i].addEventListener("click", function() {
+          currentTab.classList.remove('easytabs-active');
+
+          var newTabIndex = this.id.slice(4);
+          tabArr[newTabIndex].classList.add('easytabs-active');
+          tabArr[newTabIndex].scrollIntoView({ behavior: 'smooth'});
+          currentTab = tabArr[newTabIndex];
+        });
+      }
+
+      var jumpContainer = document.querySelector('.jumpto-container');
+      jumpContainer.classList.remove('hide');
+      
+    }, 2200);
+  })();
+</script>

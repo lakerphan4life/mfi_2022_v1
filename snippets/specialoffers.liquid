@@ -1,0 +1,46 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+<!-- <hr class="card__separator"> -->
+<div class='specialoffers-section'>
+  <div class='specialoffers-heading'>
+    <span class="product-form__option-name text--strong">Special Offers</span>
+  </div>
+  <div class='specialoffers-list'>
+    <ul>
+      
+      {% if product.metafields.custom_fields["custom_discount_field"] != blank %}
+      <li data-tooltip="Enter the code at checkout for savings">{{ product.metafields.custom_fields["custom_discount_field"] }}</li>
+      {% endif %}
+      
+      <li>Earn {{ selected_variant.price | money_without_currency | round }} points when you purchase this item!</li>
+      
+      {% assign product_price = product.price_min %}
+      {%- if product_price  > 99999 -%}
+      <li>
+        <form action="" method="post" id="product_info">
+          <input type="hidden" name="prices[]" value="{{ selected_variant.price | money_without_currency }}">
+          <p style='font-size: 16px;'>
+            <a href="https://apply.marlincapitalsolutions.com/auth/EF?partnerid=800633154BEWAAI%20&apiKey=8006331558" id="financelink_1" target="_blank" class="financelink modal-open-link">
+              <span style='' id='financemonthly'>${{ selected_variant.price | times: 0.02125 | money_without_currency }}</span><span>/month</span>
+              <span> with special financing</span></a><a href='#.' class='modal-open-link' data-micromodal-trigger="modal-financing"><span style='margin-left: 2px;opacity: 0.8;font-size: 12px;'>(more details)</span></a>
+          </p>
+        </form>
+        {%- render "marlin" -%}
+      </li>
+      {%- endif -%}
+      
+      {% for tag in product.tags %}
+      {% if tag contains "Sale_" %}
+      {% assign saletitle = tag | remove: "Sale_" %}
+      <li><a href='https://mfimedical.com/pages/medical-equipment-promotions#sale_{{ saletitle | handleize }}' target="_blank" class='modal-open-link'>{{ saletitle }}</a></li>
+      {% endif %}
+      {% endfor %}
+      
+      {% for tag in product.tags %}
+      {% if tag contains "memberprice5" %}
+      {% assign memberprice = selected_variant.price | times: 0.95 | money %}
+      <li>Member Pricing! Get this item for {{ memberprice }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+<div class='bundle-section'>
+{% for _bundle_product_values in bundle_products_array %}
+  {% assign _bundle_product_array = _bundle_product_values | split: ":" %}
+  {% assign _bundle_product_handle = _bundle_product_array | first %}
+  {% assign _bundle_product_variant_id = _bundle_product_array | last %}
+
+
+  {% if _bundle_product_handle != blank and _bundle_product_variant_id != blank %}
+    {% assign _bundle_product = all_products[_bundle_product_handle] %}
+    {% if _bundle_product != blank %}
+      {% for variant in _bundle_product.variants %}
+		{% assign _bundle_product_variant_id = _bundle_product_variant_id | times: 1 %}
+        {% if variant.id == _bundle_product_variant_id %}
+          {% if variant.available %}
+  {% if _bundle_product.title == 'Extended Warranty' %}
+  <h3 class='product-form__option-name text--strong' style='padding-top: 8px;'>Added protection for your equipment</h3>
+  {% else %}
+  <h3 class='product-form__option-name text--strong' style='padding-top: 8px;'>Essential accessories</h3>
+  {% endif %}
+            <div class="product-single__content-row content-row--active content-row--default warrantyitem{% if _bundle_product.title != 'Extended Warranty'%} recommendeditem{% endif %} text-left">
+              <label for="bundle-input-select-{{ variant.id }}-{{suffix}}">
+              <div class="product-single__description product-single__bundle">
+              <div class="product-single__bundle-container">
+                <div class="product-single__bundle-item">
+                  <div class="bundle-item__image">
+                    {% assign featured_image = _bundle_product.featured_image %}
+<!--                     <a href="{{ variant.url }}"> -->
+                      <img src="{{ featured_image | img_url: '90x' }}" alt="{{ featured_image.alt | escape }}">
+<!--                     </a> -->
+                  </div>
+                  <div class="bundle-item__content">
+                    <div class="bundle-item__title" data-micromodal-trigger="modal-bundleitem_{{ variant.id }}">                
+                      <p>
+                        {% if _bundle_product.title == 'Extended Warranty' %}
+                        1-Year {{ _bundle_product.title }} <br /><span style='line-height: 1.9;font-weight: 600;'>{{ variant.price | money_without_trailing_zeros }}</span>
+                        {% else %}
+                        {{ _bundle_product.title }} {% if product.variants.size > 1 %}({{ variant.title }}) {% endif %}<br /><span style='line-height: 1.9;font-weight: 600;'>{{ variant.price | money_without_trailing_zeros }}</span>
+                        {% endif %}
+                      </p>
+                    </div>
+
+<!--                     <div class="bundle-item__quantity-wrapper">
+                      <div class="num-block skin-2">
+                        <div class="num-in">
+                          <span class="minus dis"></span>
+                          <input type="text" class="in-num" value="1" data-is-bundle data-variant-id="{{variant.id}}" data-quantity>
+                          <span class="plus"></span>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                  
+                  <div class="bundle-item__choose">
+                    <button type="button" data-variant-id="{{variant.id}}" class="button button--secondary button--extra-small quick-add">Add</button>
+                  </div>
+                </div>
+                </div>
+              </div>
+              </label>
+                {% unless _bundle_product.title == 'Extended Warranty' %}
+                <div class='bundle-popover hidden-pocket'>
+                  <div class='arrow-right'></div>
+                  <div class='bundle-popover-inner'>
+                    <!--       <a href="{{ variant.url }}"> -->
+                    <div class='flex ai-c jc-fs'>
+                      <img src="{{ featured_image | img_url: '90x' }}" alt="{{ featured_image.alt | escape }}">
+                      <div>
+                          {% if _bundle_product.title == 'Extended Warranty' %}
+                          <h3 style='line-height: 1.4;margin-bottom: 4px;'>1-Year {{ _bundle_product.title }}</h3>
+                          {% else %}
+                        <a href="{{ variant.url }}" class='iman__action-link link read_more_link' target="_blank">
+                          <h3 style='line-height: 1.4;margin-bottom: 4px;'>{{ _bundle_product.title }} {% if product.variants.size > 1 %}({{ variant.title }}){% endif %}{%- render 'icon', icon: 'tail-right' -%}</h3>
+                        </a>
+                          {% endif %}
+                        <span style='line-height: 1.4;font-weight: 600;'>{{ variant.price | money_without_trailing_zeros }}</span>
+                      </div>
+                    </div>
+                    <div class='hidden-pocket' style='line-height: 1.4;font-size: 14px; padding-bottom:10px;margin-top: 15px;'>
+                      <span>{{ product.description | truncate: 190 | strip_html }}&nbsp;</span>
+                      <a href="{{ variant.url }}" class='iman__action-link link read_more_link' target="_blank">View item{%- render 'icon', icon: 'tail-right' -%}</a>
+                    </div>
+                    <!--       </a> -->
+                  </div>
+                </div>
+                {% endunless %}
+            </div>
+          {% else %}
+              {% comment %} Put code here for the non-available variant {% endcomment %}
+          {% endif %}
+  
+		{% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<script>
+  $(document).on('click', '.quick-add', function(){
+    if($(this).data('variant-id')){
+ 		fetch(window.routes.cartAddUrl + '.js', {
+          body: JSON.stringify({
+            id: $(this).data('variant-id')
+          }),
+            credentials: 'same-origin',
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
+            }
+        }).then(function(res){return res.json()}).then(function (response) {
+            window.dispatchEvent(new CustomEvent('product:added_to_cart', {
+                bubbles: true,
+                detail: {
+                  variant: $(this).data('variant-id'),
+                  quantity: 1
+                }
+              }));
+
+    })
+    }
+  });
+  
+</script>
+
+
+
+</div>

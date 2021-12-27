@@ -1,0 +1,19 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+<div class='specialoffers-section'>
+  <div class='specialoffers-heading'>
+    <h3>Reasons to buy from MFI</h3>
+  </div>
+  <div class='specialoffers-list'>
+    <ul>
+      {% for tag in product.tags %}
+      {% if tag contains "memberprice5" %}
+      {% assign memberprice = selected_variant.price | times: 0.95 | money %}
+      <li>Member Pricing! Get this item for {{ memberprice }}</li>
+      {% endif %}
+      {% endfor %}
+      <li>{% render 'pp-returnable' %}<li>
+      <li>{% render 'pp-pmg' %}<li>
+    </ul>
+  </div>
+</div>

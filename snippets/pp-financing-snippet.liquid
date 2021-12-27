@@ -1,0 +1,19 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+{% assign product_price = product.price_min %}
+{% if product_price  > 99999 %}
+<div>
+  <form action="" method="post" id="product_info">
+    
+    <input type="hidden" name="prices[]" value="{{ selected_variant.price | money_without_currency }}">
+    
+    <p style='font-size: 13px;'>
+      <a href="https://apply.marlincapitalsolutions.com/auth/EF?partnerid=800633154BEWAAI%20&apiKey=8006331558" id="financelink_1" target="_blank" class="financelink modal-open-link">
+        <span style='' id='financemonthly'>${{ selected_variant.price | times: 0.02125 | money_without_currency }}</span><span>/month</span>
+      
+    when you finance!</a><a href='#.' class='modal-open-link' data-micromodal-trigger="modal-financing"><span> (details)</span></a></p>
+  
+  </form>
+  {% render "marlin" %}
+</div>
+{% endif %}

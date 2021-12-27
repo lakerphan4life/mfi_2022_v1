@@ -1,0 +1,241 @@
+{% unless customer %}
+{% if product.tags contains "memberprice5" %}
+<div id="acct-register-popup-container">
+  <div id="acct-register-popup-overlay"></div>
+  <div id='acct-register-popup-box'>
+    <div id="acct-register-close-x">+</div>
+
+
+    <!--     REGISTER FORM -->
+    <div class='acct-register-popup-content' id='acct-register-form'>
+      <div class='acct-register-popup-content-headline'>
+        <img src='https://cdn.shopify.com/s/files/1/1046/1086/files/mfimedical-ekg-nocircle-logo-v10-orange-thick-blue_font_807abf0f-325b-46f4-822d-0ae154d0feaf.png?7556'/>
+        <p class='acct-register-headline'>
+          Create your free MFI Member account to get <b>member pricing</b> on hundreds of items, including the <b>{{ product.title }}</b>!
+        </p>
+      </div>
+      <div class='acct-register-popup-content-form'>
+        <article class="acct-register-popup-article" style="margin: 0;">
+          <form method="post" action="/account" id="create_customer" accept-charset="UTF-8">
+            <input type="hidden" name="form_type" value="create_customer">
+            <input type="hidden" id="customer_tags" name="customer[tags]" value="popup-member"/>
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="$fields" value="$consent">
+            <input type="hidden" name="$list_fields" value="$consent">
+            <input type="hidden" name="customer[accepts_marketing]" checked="checked" value="true" id="marketing">
+            <input type="text" placeholder="First Name" value name="customer[first_name]" id="customer_first_name">
+            <input type="text" placeholder="Last Name" value name="customer[last_name]" id="customer_last_name">
+            <input type="text" placeholder="Email" value name="customer[email]" id="customer_email">
+            <input type="password" placeholder="Password" value name="customer[password]" id="customer_password">
+            <button type="submit" class='acct-register-popup-register-button'>Register Instantly</button>
+            <p class='registermessage'></p>
+            <p class="errors form-message message--error" style="display: none;"></p>
+          </form>
+        </article>
+        <p id='show-login-form'>Already a member? Login!</p>
+        <div class='spacer-div' style='height: 15px'></div>
+        <p id="acct-register-decline">No thanks, I'll pay full price</p>
+      </div>
+    </div>
+
+    <!--     LOGIN FORM -->
+    <div class='acct-register-popup-content account-login-popup-content-form' id='acct-login-form'>
+
+      <div class='acct-register-popup-content-headline'>
+        <img src='https://cdn.shopify.com/s/files/1/1046/1086/files/mfimedical-ekg-nocircle-logo-v10-orange-thick-blue_font_807abf0f-325b-46f4-822d-0ae154d0feaf.png?7556'/>
+        <p class='acct-register-headline'>
+          Login to your MFI Member account!
+        </p>
+      </div>
+
+      <form method="post" action="/account/login" id="customer_login" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="customer_login">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="text" placeholder="Email" value name="customer[email]" id="customer_email">
+        <input type="password" placeholder="Password" value name="customer[password]" id="customer_password">
+        <button type="submit" class='acct-register-popup-login-button'>Login</button>
+        <p class='loginerror'></p>
+        <p class="errors form-message message--error" style="display: none;"></p>
+      </form>
+      <div class='spacer-div' style='height: 10px'></div>
+      <p id='show-register-form'>Not a member? Register for free!</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script>
+  (function(){
+
+    function showPopup() { 
+      if(document.getElementById('acct-register-popup-container').style.display ='none') { 
+        sessionStorage.setItem('acctPopup', 'opened');
+        document.getElementById('acct-register-popup-container').style.display ='block'; 
+      } 
+      return false;
+    } 
+
+    function hidePopup() { 
+      if(document.getElementById('acct-register-popup-container').style.display ='block') { 
+        document.getElementById('acct-register-popup-container').style.display ='none'; 
+        sessionStorage.setItem('acctPopup', 'closed');
+      } 
+      return false;
+    }  
+
+    document.getElementById("acct-register-popup-overlay").addEventListener("click", hidePopup);
+    document.getElementById("acct-register-decline").addEventListener("click", hidePopup);
+    document.getElementById("acct-register-close-x").addEventListener("click", hidePopup);
+    document.getElementById("member-price-text").addEventListener("click", showPopup);
+    
+    //     SET TIMEOUT TO DELAY POPUP ON SESSOIN STORAGE
+    if(localStorage.getItem('localRegisterPopup') != "completed") {
+      if(sessionStorage.getItem('acctPopup') != "closed") {
+      	setTimeout(showPopup, 6000);
+      }
+    }else{
+      return
+    }
+
+  })();
+
+  (function(){
+    //     LOGIN or REGISTER
+    function showLogin() { 
+      if(document.getElementById('acct-login-form').style.display ='none') { 
+        document.getElementById('acct-register-form').style.display ='none';
+        document.getElementById('acct-login-form').style.display ='flex';        
+      } 
+      return false;
+    } 
+
+    function showRegister() { 
+      if(document.getElementById('acct-register-form').style.display ='none') { 
+        document.getElementById('acct-login-form').style.display ='none';
+        document.getElementById('acct-register-form').style.display ='flex';        
+      } 
+      return false;
+    } 
+
+    document.getElementById("show-login-form").addEventListener("click", showLogin);
+    document.getElementById("show-register-form").addEventListener("click", showRegister);
+  })();
+  
+  (function(){
+
+
+      jQuery('#create_customer').submit(function(event) {
+        event.preventDefault();
+        var data = jQuery(this).serialize();
+        
+        var firstNameValue = document.getElementById("customer_first_name").value;
+        var lastNameValue = document.getElementById("customer_last_name").value;
+        var emailValue = document.getElementById("customer_email").value;
+        var passwordValue = document.getElementById("customer_password").value;
+
+        var homeURL = 'https://mfimedical.com';
+        var currentPage = window.location.href;
+        var currentPath = currentPage.substring(22);
+        console.log('currentPath = ' + currentPath);
+
+        if(firstNameValue.length == 0 || lastNameValue.length == 0 || emailValue.length == 0 || passwordValue == 0) {
+          console.log('something is empty');
+          document.querySelector(".registermessage").innerHTML = 'Registration form is incomplete.';
+          document.querySelector(".registermessage").style.color = '#e50000';
+          document.querySelector(".registermessage").style.display = 'block';
+        }else{
+          console.log('starting registration');
+          document.querySelector(".registermessage").innerHTML = 'One moment please';
+          document.querySelector(".registermessage").style.color = '#000000';
+          document.querySelector(".registermessage").style.display = 'block';      
+        }//end of IF statement for email value
+
+        //create new account
+        jQuery.post('/account', data)
+        .done(function(data){
+          var logErrors = jQuery(data).find('.errors').text();
+
+          //if there are errors show them in the html form
+          if (logErrors != "" && logErrors != 'undefined'){
+            document.querySelector(".registermessage").style.display = 'none';
+            jQuery('#create_customer .errors').html(logErrors);
+            jQuery('#create_customer .errors').show();
+
+            //if account creation is successful go back to same page
+          }else{
+            console.log('success');
+            document.querySelector(".registermessage").style.color = '#00b74c';
+            document.querySelector(".registermessage").innerHTML = 'Success! We are creating your account.';
+            document.querySelector(".registermessage").style.display = 'block';
+            localStorage.setItem('localRegisterPopup','completed');
+            sessionStorage.setItem('acctPopup', 'closed');
+            document.location.href = currentPath;
+          }
+        }).fail(function(){
+          console.log('error');
+          document.querySelector(".registermessage").style.color = '#e50000';        
+          document.querySelector(".registermessage").innerHTML = 'Something went wrong. Please <a href="https://mfimedical.com/account/register" target="_blank">register here</a>.';        
+          document.querySelector(".registermessage").style.display = 'block';
+
+        });
+        return false;
+      });//END OF REGISTER SUBMIT FORM AJAX 
+
+    
+    
+  })();
+  
+  (function(){
+//      LOGIN AJAX
+    jQuery('#customer_login').submit(function(event) {
+      event.preventDefault();
+      var data = jQuery(this).serialize();
+
+      var homeURL = 'https://mfimedical.com';
+      var currentPage = window.location.href;
+      var currentPath = currentPage.substring(22);
+      console.log('currentPath = ' + currentPath);
+      document.querySelector(".loginerror").style.color = '#000000';
+      document.querySelector(".loginerror").innerHTML = 'One moment please';
+      document.querySelector(".loginerror").style.display = 'block';
+      
+      //create new account
+      jQuery.post('/account/login', data)
+      .done(function(data){
+        var logErrors = jQuery(data).find('.errors').text();
+
+        //if there are errors show them in the html form
+        if (logErrors != "" && logErrors != 'undefined'){
+          document.querySelector(".loginerror").style.display = 'none';
+          jQuery('#customer_login .errors').html(logErrors);
+          jQuery('#customer_login .errors').show();
+
+          //if account creation is successful go back to same page
+        }else{
+          console.log('success');
+          document.querySelector(".loginerror").style.color = '#00b74c';
+          document.querySelector(".loginerror").innerHTML = 'Welcome back! We are logging you in now.';
+          document.querySelector(".loginerror").style.display = 'block';
+          jQuery('#customer_login .errors').hide();
+          sessionStorage.setItem('acctPopup', 'closed');
+          sessionStorage.setItem('loggedIn', 'yes');
+          document.location.href = currentPath;
+        }
+      }).fail(function(){
+        console.log('error');
+        document.querySelector(".loginerror").style.color = '#e50000';
+        document.querySelector(".loginerror").innerHTML = 'Login error. Please try again.';
+        document.querySelector(".loginerror").style.display = 'block';
+        
+      });
+      return false;
+    });//END OF LOGIN FORM AJAX 
+    
+  })();
+
+</script>
+
+{% endif %}
+{% endunless %}

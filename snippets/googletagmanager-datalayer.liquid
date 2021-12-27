@@ -1,0 +1,50 @@
+<!-- Google Tag Manager DataLayer -->
+
+{% if template contains 'product' %}
+<script>
+  dataLayer = [{
+    'pagetype': 'product',
+    'product_id': '{{ product.variants.first.id }}',
+    'product_sku': '{{ product.variants.first.sku }}',
+    'product_price': parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+  }];
+</script>
+
+{% elsif template contains 'collection' %}
+<script>
+  dataLayer = [{
+    'pagetype': 'category'
+  }];
+</script>
+
+{% elsif template contains 'cart' %}
+<script>
+  dataLayer = [{
+    'pagetype': 'cart',
+    'cart_ids': [{% for item in cart.items %}'{{item.variant.id}}',{% endfor %}],
+    'cart_skus': [{% for item in cart.items %}'{{item.variant.sku}}',{% endfor %}],
+    'cart_total': parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+  }];
+</script>
+
+{% elsif template contains 'search' %}
+<script>
+  dataLayer = [{
+	'pagetype': 'searchresults'
+  }];
+</script>
+
+{% elsif template contains 'index' %}
+<script>
+  dataLayer = [{
+    'pagetype': 'home'
+  }];
+</script>
+
+{% else %}
+<script>
+  dataLayer = [{
+    'pagetype': 'other'
+  }];
+</script>
+{% endif %}

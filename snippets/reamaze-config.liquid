@@ -1,0 +1,577 @@
+<!-- Reamaze Config file - DO NOT REMOVE -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support.account = "mfimedical";
+</script>
+
+<!-- reamaze_embeddable_9711_s -->
+<!-- Embeddable - MFI Medical Chat / Contact Form Shoutbox -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support['account'] = 'mfimedical';
+  _support['ui']['contactMode'] = 'default';
+  _support['ui']['enableKb'] = 'true';
+  _support['ui']['styles'] = {
+    widgetColor: 'rgb(10, 53, 95)',
+    gradient: true,
+  };
+  _support['ui']['widget'] = {
+    label: {
+      text: 'Let us know if you have any questions! &#128522;',
+      mode: "notification",
+      delay: 3,
+      duration: 60,
+      sound: true,
+    },
+    position: 'bottom-right',
+  };
+  _support['apps'] = {
+    faq: {"enabled":true},
+    recentConversations: {},
+    orders: {"enabled":true,"enable_notes":true}
+  };
+</script>
+<!-- reamaze_embeddable_9711_e -->
+
+
+<!-- reamaze_cue_2751_s -->
+<!-- Cue - Member pricing -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support.outbounds = _support.outbounds || [];
+  _support.outbounds.push({
+    id: "2751",
+    name: "Member pricing",
+    message: "Get member pricing when you create your free MFI Member account! ",
+    sound: true,
+    transient: true,
+    botsEnabled: false,
+    disableCueClick: false,
+    enableCustomFields: false,
+    start: "",
+    end: "",
+    user: {
+      type: "team"
+    },
+    buttons: [
+      {
+        text: "Sign Up Now",
+        url: "https://mfimedical.com/account/register",
+        target: "_top",
+      },
+    ],
+    rules: [
+      {
+        type: "url",
+        op: "contains",
+        value: "https://mfimedical.com/pages/members",
+      },
+      {
+        type: "timeOnPage",
+        op: "greaterThan",
+        value: "8s",
+      },
+    ],
+  });
+</script>
+<!-- reamaze_cue_2751_e -->
+
+
+
+<!-- reamaze_cue_2874_s -->
+<!-- Cue - Checkout -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support.outbounds = _support.outbounds || [];
+  _support.outbounds.push({
+    id: "2874",
+    name: "Checkout",
+    message: "Do you need assistance with completing your purchase?",
+    sound: true,
+    transient: true,
+    botsEnabled: false,
+    disableCueClick: false,
+    enableCustomFields: false,
+    start: "2020-02-17T08:00:00.000Z",
+    end: "2020-02-29T08:00:00.000Z",
+    user: {
+      type: "team"
+    },
+    rules: [
+      {
+        type: "url",
+        op: "contains",
+        value: "https://mfimedical.com/10461086/checkouts/",
+      },
+      {
+        type: "timeOnPage",
+        op: "greaterThan",
+        value: "150s",
+      },
+      {
+        type: "deviceType",
+        op: "equals",
+        value: "desktop",
+      },
+    ],
+  });
+</script>
+<!-- reamaze_cue_2874_e -->
+
+
+
+
+
+
+
+
+
+<!-- reamaze_embeddable_20028_s -->
+<!-- Embeddable - Submit a Complaint -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support['account'] = 'mfimedical';
+  _support['contact_custom_fields'] = _support['contact_custom_fields'] || {};
+  _support['contact_custom_fields']['rmz_form_id_20028'] = {
+      'Complaint Category': {
+        pos: 1611555741778,
+        type: 'dropdown',
+        value: ['Employee','Communication','Company Policy','Marketplace','Order','Vendor','Website'],
+        required: true,
+        placeholder: '',
+      },
+      'URL': {
+        pos: 1611555741779,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: 'URL of web page',
+        dependantField: 'Complaint Category',
+        dependantOptions: ['Website'],
+      },
+      '__order_number': {
+        pos: 1611555741780,
+        type: 'order_number',
+        required: true,
+        placeholder: 'Order Number',
+        dependantField: 'Complaint Category',
+        dependantOptions: ['Order'],
+      },
+      'Employee Name': {
+        pos: 1611555741781,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Complaint Category',
+        dependantOptions: ['Employee'],
+      },
+      'Company Policy': {
+        pos: 1611555741782,
+        type: 'dropdown',
+        value: ['Certified Refurbished Policy','Discounts & Promotions Policy','Payment & Refund Policy','Price Match Policy','Privacy Policy','Return Exchange & Cancellation Policy','Sales Tax & Exemption Policy','Shipping Policy','Subject to Change Policy','Warranty Policy'],
+        required: true,
+        placeholder: '',
+        dependantField: 'Complaint Category',
+        dependantOptions: ['Company Policy'],
+      },
+      'Marketplace': {
+        pos: 1611555741783,
+        type: 'dropdown',
+        value: ['Alibaba','Amazon','DOTmed','eBay','Machinio','Walmart','Other'],
+        required: false,
+        placeholder: '',
+        dependantField: 'Complaint Category',
+        dependantOptions: ['Marketplace'],
+      },
+      'Vendor Name': {
+        pos: 1611555741784,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Complaint Category',
+        dependantOptions: ['Vendor'],
+      },
+      'I would like a phone call': {
+        pos: 1611555741785,
+        type: 'checkbox',
+        value: false,
+        required: false,
+        placeholder: '',
+      },
+      'Phone Number': {
+        pos: 1611555741786,
+        type: 'phone',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'I would like a phone call',
+        dependantOptions: [],
+      },
+      'heading-1609144778662': {
+        pos: 1611555741787,
+        type: 'heading',
+        value: 'Please express your concern below, providing as much detail as possible. We welcome any suggestions on how MFI can earn your business back and improve in the future.',
+      }
+  };
+</script>
+<!-- reamaze_embeddable_20028_e -->
+
+
+
+
+<!-- reamaze_embeddable_20954_s -->
+<!-- Embeddable - Tax Exempt Form -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support['account'] = 'mfimedical';
+  _support['contact_custom_fields'] = _support['contact_custom_fields'] || {};
+  _support['contact_custom_fields']['rmz_form_id_20954'] = {
+      'Phone Number': {
+        pos: 1611537086749,
+        type: 'phone',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Request': {
+        pos: 1611537086750,
+        type: 'dropdown',
+        value: ['Apply for MFI Tax Exemption Program','Add Additional User to My MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program','Other Request for My MFI Tax Exemption Program'],
+        required: true,
+        placeholder: '',
+      },
+      'Email Currently Registered in the MFI Tax Exemption Program': {
+        pos: 1611537086751,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Add Additional User to My MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program','Other Request for My MFI Tax Exemption Program'],
+      },
+      'Entity type of your organization': {
+        pos: 1611537086752,
+        type: 'dropdown',
+        value: ['Charitable','Government','Religious','Resale','Miscellaneous'],
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program'],
+      },
+      'I am exempt from tax in the following state(s).': {
+        pos: 1611537086753,
+        type: 'dropdown',
+        value: ['Multistate','Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Minor Outlying Islands','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','U.S. Virgin Islands','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'],
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program'],
+      },
+      'List all of the states': {
+        pos: 1611537086754,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'I am exempt from tax in the following state(s).',
+        dependantOptions: ['Multistate'],
+      },
+      'Exemption Number(s)': {
+        pos: 1611537086755,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program'],
+      },
+      'Describe the property you will be purchasing (ie; medical supplies)': {
+        pos: 1611537086756,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program'],
+      },
+      'Organization Name': {
+        pos: 1611537086757,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program'],
+      },
+      'Address': {
+        pos: 1611537086758,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program'],
+      },
+      'City': {
+        pos: 1611537086759,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program'],
+      },
+      'State': {
+        pos: 1611537086760,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program'],
+      },
+      'Zip Code': {
+        pos: 1611537086761,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program'],
+      },
+      'Request Tax Refund': {
+        pos: 1611537086762,
+        type: 'checkbox',
+        value: false,
+        required: false,
+        placeholder: '',
+      },
+      'heading-1611527999855': {
+        pos: 1611537086763,
+        type: 'heading',
+        value: 'Refunds are normally confirmed within 2 business days and fully refunded within 5 business days.',
+        dependantField: 'Request Tax Refund',
+        dependantOptions: [],
+      },
+      'Order Number(s)': {
+        pos: 1611537086764,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request Tax Refund',
+        dependantOptions: [],
+      },
+      'Add Additional User to Tax Exempt Status': {
+        pos: 1611537086765,
+        type: 'checkbox',
+        value: false,
+        required: false,
+        placeholder: '',
+      },
+      'Additional User Email': {
+        pos: 1611537086766,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Add Additional User to Tax Exempt Status',
+        dependantOptions: [],
+      },
+      'Additional User First Name': {
+        pos: 1611537086767,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Add Additional User to Tax Exempt Status',
+        dependantOptions: [],
+      },
+      'Additional User Last Name': {
+        pos: 1611537086768,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Add Additional User to Tax Exempt Status',
+        dependantOptions: [],
+      },
+      'I accept the MFI Tax Exemption Program (MFI-TEP) Terms and Conditions': {
+        pos: 1611537086769,
+        type: 'checkbox',
+        value: false,
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional User to My MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program','Other Request for My MFI Tax Exemption Program'],
+      },
+      'Authorized Signor Name': {
+        pos: 1611537086770,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional User to My MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program','Other Request for My MFI Tax Exemption Program'],
+      },
+      'Authorized Signor Title': {
+        pos: 1611537086771,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional User to My MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program','Other Request for My MFI Tax Exemption Program'],
+      },
+      'heading-1611381692291': {
+        pos: 1611537086772,
+        type: 'heading',
+        value: 'Attach a copy of your exemption certificate(s) for enrollment. Eligible certificates include a state resale certificate, tax exemption certificate, or other acceptable proof of tax exemption for the state or US territory',
+        dependantField: 'Request',
+        dependantOptions: ['Apply for MFI Tax Exemption Program','Add Additional State to My MFI Tax Exemption Program'],
+      },
+      'heading-1611527928756': {
+        pos: 1611537086773,
+        type: 'heading',
+        value: 'We will review your application and email confirmation within one business day.',
+      }
+  };
+</script>
+<!-- reamaze_embeddable_20954_e -->
+
+<!-- reamaze_embeddable_20031_s -->
+<!-- Embeddable - Price Match Form -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support['account'] = 'mfimedical';
+  _support['contact_custom_fields'] = _support['contact_custom_fields'] || {};
+  _support['contact_custom_fields']['rmz_form_id_20031'] = {
+      'Phone Number': {
+        pos: 1611563188856,
+        type: 'phone',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Company Name': {
+        pos: 1611563188857,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Address': {
+        pos: 1611563188858,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'City': {
+        pos: 1611563188859,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'State': {
+        pos: 1611563188860,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Zip Code': {
+        pos: 1611563188861,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'MFI Item SKU': {
+        pos: 1611563188862,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Quantity': {
+        pos: 1611563188863,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Price Match Item Price': {
+        pos: 1611563188864,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Shipping Method': {
+        pos: 1611563188865,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'Price Match Shipping Cost': {
+        pos: 1611563188866,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      },
+      'heading-1609145392801': {
+        pos: 1611563188867,
+        type: 'heading',
+        value: 'We require a link to the same product on our competitors&#8217; website, or attach a copy of a competitive formal quotation.',
+      },
+      'Price Match URL': {
+        pos: 1611563188868,
+        type: 'text',
+        value: '',
+        required: true,
+        placeholder: '',
+      }
+  };
+</script>
+<!-- reamaze_embeddable_20031_e -->
+
+
+<!-- reamaze_embeddable_21035_s -->
+<!-- Embeddable - Order Update Request -->
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support['account'] = 'mfimedical';
+  _support['contact_custom_fields'] = _support['contact_custom_fields'] || {};
+  _support['contact_custom_fields'] = {
+    'Phone Number': {
+      pos: 1611618063106,
+      type: 'phone',
+      value: '',
+      required: true,
+      placeholder: '',
+    },
+    '__order_number': {
+      pos: 1611618072597,
+      type: 'order_number',
+      required: true,
+      placeholder: 'Order Number',
+    },
+    'Need By Date - Optional': {
+      pos: 1611618083763,
+      type: 'date',
+      required: false,
+    },
+    'heading-1611618373671': {
+      pos: 1611618125536,
+      type: 'heading',
+      value: 'Our team will respond as soon as possible and normally responds within one business day.',
+    }
+  };
+</script>
+<!-- reamaze_embeddable_21035_e -->

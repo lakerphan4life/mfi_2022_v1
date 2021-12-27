@@ -2,6 +2,11 @@
 
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    <!--   Google tag manager   -->
+    {% render 'googletagmanager' %} 
+    <!--  GOOGLE/BING VERIFICATION TAGS DO NOT REMOVE    -->
+    <meta name="google-site-verification" content="y80__Rk1b9qc7p7MA-7qw3Q4GyjW4Te--xODMvB7rkY" />
+    <meta name="msvalidate.01" content="06CC12889C4E71F07873C8BB1A5F7A60" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="{{ settings.accent_color }}">
@@ -41,6 +46,9 @@
 
     {{ content_for_header }}
 
+    {%- if page.template_suffix == 'map' -%}
+      <link rel="stylesheet" href="{{ 'svgmap.scss.css' | asset_url }}">
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
 
@@ -156,12 +164,8 @@
       <li id="a11y-new-window-message">{{ 'general.accessibility.new_window' | t }}</li>
     </ul>
   <!-- This line added automatically by JSON-LD for SEO. -->{% include 'jsonld-for-seo' %}
-{% include 'elspw_include' %}
- {% include 'smile-initializer' %}
-
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    
-    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'custom-fields-by-product-variant.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
-    <!--[if lte IE 9]><script src="{{ 'custom-fields-by-product-variant.js' | asset_url }}"></script><![endif]-->
+  {% include 'elspw_include' %}
+  {%- section 'imans-modals' -%}
+  {%- render 'above-body-scripts' -%}
 </body>
 </html>

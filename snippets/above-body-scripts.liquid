@@ -1,0 +1,61 @@
+{% comment %} Jquery CDN {% endcomment %}
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+{% comment %} SVG MAP MODAL {% endcomment %}
+<script>
+    (function(){
+    $( ".state" ).on( "click", function() { 
+        $('#dialogbox').addClass('active');
+        $('#data').html($(this).data('info'));
+    });
+    $( "#dialogbox" ).on( "click", function() {
+        $('#dialogbox').removeClass('active');
+        $("#data").empty();
+    });
+    })();
+</script>
+
+{% comment %} METAFIELD VARIANT SCRIPT {% endcomment %}
+<!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'custom-fields-by-product-variant.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'custom-fields-by-product-variant.js' | asset_url }}"></script><![endif]-->
+
+{% comment %} MOMENT JS {% endcomment %}
+<script src="{{ 'moment.js' | asset_url }}"></script>
+
+{% comment %} REAMAZE SCRIPT {% endcomment %}
+<script type="text/javascript">
+    var _support = _support || { 'ui': {}, 'user': {} };
+    _support['account'] = 'mfimedical';
+</script>
+
+{% render 'flits_snippet' %}
+
+{% comment %} REVIEWS.io floating {% endcomment %}
+<link rel="stylesheet" type="text/css" href="https://widget.reviews.io/floating-widget/css/dist.css">
+<script src="https://widget.reviews.io/rich-snippet-reviews-widgets/dist.js" type="text/javascript"></script>
+
+<script>
+    window.onload = function() {
+    richSnippetReviewsWidgets({
+        store: "mfi-medical",
+        primaryClr: "#ffb00c",
+        widgetName: "floating-widget",
+        numReviews: 20,
+        css: '.vw__footer { display: none !important; }',
+        floatPosition: "left",
+        contentMode: "company;third-party",
+        tabStyle: "normal", 
+        hideDates: false
+    });
+    };
+</script>
+
+{% comment %} KLAVIYO {% endcomment %}
+{% render 'klaviyobis' %}
+
+{% comment %} SMILE.io JS {% endcomment %}
+{% render 'smile-initializer' %}
+{% render 'custom-smile' %}
+
+{% comment %} MICRO MODAL JS {% endcomment %}
+{%- render 'js-micro-modal' -%}

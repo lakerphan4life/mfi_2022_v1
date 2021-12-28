@@ -8109,6 +8109,7 @@ select option {
 
   .page__sub-header {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
   }
@@ -8509,6 +8510,7 @@ select option {
 @media screen and (min-width: 1000px) {
   .product-gallery__carousel {
     margin: -4px;
+    padding-right: 40px;
   }
 
   .product-gallery__carousel-item {
@@ -8682,7 +8684,7 @@ select option {
   display: inline-block;
   position: relative;
   content: "";
-  margin: 0 14px;
+  margin: 0 3px;
   height: 13px;
   width: 1px;
   top: -1px;
@@ -8785,17 +8787,20 @@ select option {
 .product-form__option-name {
   display: block;
   margin-bottom: 2px;
+  line-height: 1.6;
 }
 
 .product-form__selected-value {
   padding-left: 2px;
-  color: var(--text-color);
+  color: var(--mfi-link-blue);
+  font-weight: 600;
+  font-family: var(--heading-font-family);
 }
 
 .product-form__info-list {
   display: table;
   width: 100%;
-  margin: -22px 0 6px 0;
+  margin: -22px 0 0px 0;
   border-spacing: 0 22px;
 }
 
@@ -9120,6 +9125,7 @@ shopify-payment-terms {
 }
 
 .price {
+  font-weight: 500;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 24px));
   color: var(--mfi-link-blue);
 }
@@ -9131,6 +9137,7 @@ shopify-payment-terms {
 
 .price--compare {
   position: relative;
+  font-weight: 400;
   color: var(--text-color);
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
   text-decoration: line-through;

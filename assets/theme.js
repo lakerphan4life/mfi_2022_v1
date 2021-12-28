@@ -3387,6 +3387,19 @@
           unitPriceReferenceValue.innerHTML = newVariant['unit_price_measurement']['reference_value'];
           unitPriceReferenceValue.style.display = newVariant['unit_price_measurement']['reference_value'] === 1 ? 'none' : 'inline';
         }
+
+        if (document.querySelector('.pp-price-container')){
+          let checkVizient = document.querySelector('.pp-price-container').dataset.vizient;
+          let vizientDiscountAmount = (100 - parseInt(document.querySelector('.pp-price-container').dataset.vizientdiscount))/100;
+          if(checkVizient === 'true'){
+            // document.querySelector('.vizient-wrapper').style.display = 'block';
+            let vizientDiscount = (newVariant.price*vizientDiscountAmount);
+            document.querySelector('.vizient-price').innerHTML = Currency.formatMoney(vizientDiscount, window.theme.moneyFormat);
+          }else{
+            document.querySelector('.vizient-wrapper').style.display = 'none'
+          }
+        }
+
       }
       /**
        * Warehouse automatically adds a "disabled" state to sold out/unavailable variant. When we change the variant we have to recompute

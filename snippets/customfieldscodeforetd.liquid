@@ -1,8 +1,9 @@
 {%- if product.metafields.custom_fields["variant_leadtimeinteger"] != blank -%}
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
 <script src="{{ 'moment.js' | asset_url }}"></script>
 <div>
-  <span onclick="ga('send', 'event', 'PDP Links', 'click', 'Estimated Delivery Modal');" class='product-form__option-name text--strong' data-tooltip="Click for more information" data-micromodal-trigger="modal-delivery" style='display: inline-block; margin: 14px 0 0;'>Estimated Delivery:</span>
-  <div style='font-size: 14px; display: inline-block;' id='variant_leadtime_{{ variant.id }}' data-leadtime='{{ product.metafields.custom_fields["variant_leadtimeinteger"] }}'></div>
+  <span onclick="ga('send', 'event', 'PDP Links', 'click', 'Estimated Delivery Modal');" class='product-form__option-name text--strong' data-tooltip="Click for more information" data-micromodal-trigger="modal-delivery" style='display: inline-block; margin-bottom: 0px;'>Estimated Delivery:</span>
+  <div style='font-size: 16px; display: inline-block;' id='variant_leadtime_{{ selected_variant.id }}' data-leadtime='{{ product.metafields.custom_fields["variant_leadtimeinteger"] }}'></div>
 </div>
 
 <script>
@@ -14,7 +15,7 @@
     var parcelrange = 7;
     var freightrange = 14;
     
-    var id = variant_leadtime_{{ variant.id }};
+    var id = variant_leadtime_{{ selected_variant.id }};
     var standardShip = {{ product.metafields.custom_fields["variant_leadtimeinteger"] }} + 1;
     console.log("standardShip = " + standardShip);
 
@@ -84,7 +85,7 @@
     console.log("etd range = " + formatStartRange + " to " + formatEndRange);
     var actualEtd = formatStartRange + " to " + formatEndRange;
     console.log(actualEtd);
-    var placement = document.getElementById('variant_leadtime_{{ variant.id }}');
+    var placement = document.getElementById('variant_leadtime_{{ selected_variant.id }}');
                                             placement.innerHTML = actualEtd;
 
                                             //   $('#fromDate').html( standardDate.format('MMMM Do') );
@@ -116,7 +117,7 @@
 
 {%- else -%}
 <script src="{{ 'moment.js' | asset_url }}"></script>
-<div class='product-form__option-name text--strong' onclick="ga('send', 'event', 'PDP Links', 'click', 'Estimated Delivery Modal');" data-tooltip="Click for more information" data-micromodal-trigger="modal-delivery" style='display: inline-block; margin: 14px 0 0;'><span>Estimated Delivery:&nbsp;</span></div>
+<div class='product-form__option-name text--strong' onclick="ga('send', 'event', 'PDP Links', 'click', 'Estimated Delivery Modal');" data-tooltip="Click for more information" data-micromodal-trigger="modal-delivery" style='display: inline-block; margin-bottom: 0px;'><span>Estimated Delivery:&nbsp;</span></div>
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign machine = shop.metafields.custom_fields["variant_fields"] | split: "|" -%}
 <div class="variant-custom-fields-wrapper" style='display: inline-block;max-height: 40px;'>
@@ -135,7 +136,7 @@
 
       <div>
 <!--         <span class='product-form__option-name text--strong' data-tooltip="Click for more information" data-micromodal-trigger="modal-delivery" style='display: inline-block;'>{{ human_name }}:</span> -->
-        <div style='font-size: 14px; display: inline-block;' id='variant_leadtime_{{ variant.id }}' data-leadtime='{{ variant.metafields.custom_fields[machine_name] }}'></div>
+        <div style='font-size: 16px; display: inline-block;' id='variant_leadtime_{{ variant.id }}' data-leadtime='{{ variant.metafields.custom_fields[machine_name] }}'></div>
       </div>
 
       <script>

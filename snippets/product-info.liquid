@@ -8,6 +8,23 @@
 
   <div class="card__section">
     {%- form 'product', product, id: product_form_id, class: 'product-form' -%}
+    <input
+             id='etd'
+             name="properties[Estimated Delivery]"
+             value=""
+             {%if show_bundle_products%}data-has-bundle-products{%endif%}
+             type="hidden">
+      
+      <script>
+        (function(){
+          document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById('etd').value = document.getElementById("variant_leadtime_{{ selected_variant.id }}").innerHTML
+                                                                           });
+
+
+          })();
+      </script>
+      
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 

@@ -45,21 +45,10 @@
           </ol>
         </nav>
 
-        {%- if collection.previous_product or collection.next_product -%}
-          <div class="page__navigation">
-            {%- if collection.previous_product -%}
-              <span class="page__navigation-item page__navigation-item--prev">
-                <a href="{{ collection.previous_product.url }}" class="link" rel="prev">{%- render 'icon', icon: 'arrow-left' -%} {{- 'product.general.previous_product' | t -}}</a>
-              </span>
-            {%- endif -%}
-
-            {%- if collection.next_product -%}
-              <span class="page__navigation-item page__navigation-item--next">
-                <a href="{{ collection.next_product.url }}" class="link" rel="next">{{- 'product.general.next_product' | t -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
-              </span>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
+        {% comment %} ADD SAVE FOR LATER {% endcomment %}
+      <div class="page__navigation">
+      <div class='hidden-belowwide'>{% render 'flits_wishlist_snippet' with 'flits_product_page_wsl_btn' %}</div>
+      </div>
       </div>
 
       <div class="product-block-list product-block-list--{{ section.settings.image_size }}">

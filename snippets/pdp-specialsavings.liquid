@@ -1,0 +1,115 @@
+<!-- Show List price -->
+<!-- Show Our Price -->
+<!-- Show the Savings -->
+<!-- Free Shipping and Free Returns - or do we want this near ATC??? -->
+<!-- Show financing monthly price -->
+<!-- show shipping estimator if not free shipping -->
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+{% for tag in product.tags %}
+{% if tag contains "memberprice5" %}
+{% assign memberpriceboolean = true %}
+{% assign memberprice = selected_variant.price | times: 0.95 | money %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% assign vizient = false %}
+{% for tag in product.tags %}
+{% if tag contains "vizientgpo" %}
+{% assign vizient = true %}{% break %}
+{% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains "vizient" %}
+{% assign vizient_discount = tag | remove: "vizient" %}{% break %}
+{% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains "Sale_" %}
+{% assign saletitle = tag | remove: "Sale_" %}{% break %}
+{% endif %}
+{% endfor %}
+
+<div class='pp-price-container' data-vizient="{{vizient}}" data-vizientdiscount='{{ vizient_discount }}' data-memberprice='{{ memberpriceboolean }}'>
+    <div class="vizient-wrapper product-form__info-item">
+        <span class="product-form__info-title text--strong">Vizient price:</span>
+        <div class="product-form__info-content">
+            <span class="price price--highlight vizient-price" style='font-size: 22px;'>
+                {% for tag in product.tags %}
+                {% if tag contains "vizient5" %}{{ selected_variant.price | times: 0.95 | money_without_trailing_zeros }}</span>
+                {% elsif tag contains "vizient10" %}{{ selected_variant.price | times: 0.90 | money_without_trailing_zeros }}</span>
+            {% elsif tag contains "vizient15" %}{{ selected_variant.price | times: 0.85 | money_without_trailing_zeros }}</span>
+            {% else %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="product-form__info-item">
+        {% if customer %}
+            <span class="product-form__info-title text--strong" data-micromodal-trigger="modal-memberpricing">Your Member Price:</span>
+        {% else %}
+            <span class="product-form__info-title text--strong" data-micromodal-trigger="modal-memberpricing">MFI Member Price:</span>
+        {% endif %}
+        <div class="product-form__info-content">
+            <span class="price price--highlight hc-memberprice-price" style='font-size: 22px;'>{{ selected_variant.price | times: 0.95 | money_without_trailing_zeros }}</span>
+        </div>
+    </div>
+</div>
+
+
+<hr class="card__separator">
+<!--   SPECIAL OFFERS -->
+<div class='specialoffers-section'>
+  <div class='specialoffers-heading'>
+    <span class="product-form__option-name text--strong">Special Offers</span>
+  </div>
+  <div class='specialoffers-list'>
+    <ul>
+      {% if product.metafields.custom_fields["custom_discount"] != blank %}
+      <li><p class='modal-open-link text-left' style='cursor: default !important;text-decoration: none !important;'><span data-tooltip="Enter the code at checkout for savings">{{ product.metafields.custom_fields["custom_discount"] }}</span></p></li>
+      {% endif %}
+      
+      <li onclick="ga('send', 'event', 'PDP Links', 'click', 'Rewards Modal');" data-tooltip="Click for more information" class='modal-open-link' data-micromodal-trigger="modal-earnpoints">Earn <strong><span id='earnpoints'>{{ selected_variant.price | times: 0.01 | round  }}</span> points</strong> on this item as an MFI member!</li>
+      
+      {% if selected_variant.price  > 99999 %}
+      <li>
+        <form action="" method="post" id="product_info">
+          <input type="hidden" name="prices[]" value="{{ selected_variant.price | money_without_currency }}">
+          <p>
+            <a onclick="ga('send', 'event', 'PDP Links', 'click', 'Marlin Financing');" href="https://apply.marlincapitalsolutions.com/auth/EF?partnerid=800633154BEWAAI%20&apiKey=8006331558" id="financelink_1" target="_blank" data-tooltip="Click to apply for financing" class="financelink modal-open-link">
+              <span style='font-weight: 600;' id='financemonthly'>${{ selected_variant.price | times: 0.02125 | money_without_currency }}</span><span>/month</span>
+              <span> with special financing</span>
+            </a><a href='#.' onclick="ga('send', 'event', 'PDP Links', 'click', 'Financing Modal');" class='modal-open-link' data-micromodal-trigger="modal-financing"><span style='margin-left: 2px;opacity: 0.8;font-size: 12px;'>(more details)</span></a>
+          </p>
+        </form>
+        {% render "marlin" %}
+      </li>
+      {% endif %}
+
+      {% for tag in product.tags %}
+      {% if tag contains "Sale_" %}
+      {% assign saletitle = tag | remove: "Sale_" %}
+      <li><a onclick="ga('send', 'event', 'PDP Links', 'click', 'Specials Page');" data-tooltip="Click to be taken to the specials page" href='https://mfimedical.com/pages/medical-equipment-promotions#sale_{{ saletitle | handleize }}' target="_blank" class='modal-open-link'>{{ saletitle }}</a></li>
+      {% endif %}
+      {% endfor %}
+
+      {% if memberpriceboolean %}
+<!--       <div class='flex-row ai-fe jc-c' style='display:{% if memberpriceboolean %}block{% else %}none{% endif %};'>
+        <span class='modal-open-link modal-memberpricing member-price-title' id='member-price-text' data-micromodal-trigger="modal-memberpricing">Sign up to get member pricing and earn rewards!</span>
+      </div> -->
+      {% endif %}
+
+      {% if vizient %}
+      <div class='flex-row ai-fe jc-c' style='display:{% if vizient %}block{% else %}none{% endif %};'>
+        <span onclick="ga('send', 'event', 'PDP Links', 'click', 'Vizient Modal');" data-tooltip="Click for more information" class='modal-open-link modal-vizient vizient-gpo-title' data-micromodal-trigger="modal-vizient">Save <span>{{ vizient_discount }}%</span> when you qualify for Vizient GPO</span>
+      </div>
+      {% endif %}
+
+
+    </ul>
+  </div>
+</div>

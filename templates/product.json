@@ -34,13 +34,21 @@
           "settings": {
             "display_mode": "show_all"
           }
+        },
+        "16de1df5-b489-41da-953a-1c5ecb9d8b89": {
+          "type": "shipping_estimator",
+          "settings": {
+            "shipping_estimator_default_country": "United States",
+            "show_refunds_policy": false
+          }
         }
       },
       "block_order": [
         "product_meta",
         "variant_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "16de1df5-b489-41da-953a-1c5ecb9d8b89"
       ],
       "settings": {
         "image_size": "small",

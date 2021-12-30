@@ -71,10 +71,26 @@
         "title": "Recently viewed",
         "show_quick_buy": false
       }
+    },
+    "16320114352b37af49": {
+      "type": "apps",
+      "blocks": {
+        "652166fd-08a0-4335-aa1d-d9bdcb61685e": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "652166fd-08a0-4335-aa1d-d9bdcb61685e"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
+    "16320114352b37af49",
     "product-recommendations",
     "recently-viewed-products"
   ]

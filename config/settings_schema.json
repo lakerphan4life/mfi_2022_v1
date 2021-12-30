@@ -419,6 +419,20 @@
       },
       {
         "type": "checkbox",
+        "id": "product_show_bundle_products",
+        "label": "Show bundle products",
+        "default": true,
+        "info": "Note: This will show bundle products on product pages(using metafields)."
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_bundle_products_popup",
+        "label": "Show bundle products popup",
+        "default": true,
+        "info": "Note: This will show bundle products in popup on product pages if bundle products are not chosen."
+      },
+      {
+        "type": "checkbox",
         "id": "show_reviews_badge",
         "label": "Show product rating",
         "info": "To display a rating, add a product rating app. [Learn more](https:\/\/help.shopify.com\/en\/manual\/products\/product-reviews\/installation)",

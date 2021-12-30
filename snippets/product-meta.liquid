@@ -8,7 +8,7 @@
       <a href="{{ product.url }}">{{ product.title }}</a>
     </h3>
   {%- endif -%}
-
+  
   {%- capture product_labels -%}
     {%- for tag in product.tags -%}
       {%- if tag contains '__label:' -%}
@@ -33,11 +33,12 @@
   {%- endif -%}
 
   
-    <div class="product-meta__reference">
-      
+    <div class="product-meta__reference flex-col-row ai-fs-c jc-fs">
+    {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
         {%- assign vendor_handle = product.vendor | handle -%}
         {%- assign collection_for_vendor = collections[vendor_handle] -%}
-
+    <div>
+      <span class="" style='padding-right: 6px;'>
         {%- unless collection_for_vendor.empty? -%}
         <strong>MFR: </strong>
           <a class="product-meta__vendor link link--accented" href="{{ collection_for_vendor.url }}">{{ product.vendor }}</a>
@@ -45,12 +46,13 @@
         <strong>MFR: </strong>
           <a class="product-meta__vendor link link--accented" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
         {%- endunless -%}
-      
+      </span>
 
       
         <span class="product-meta__sku" {% if selected_variant.sku == blank %}style="display: none"{% endif %}>
           <strong>{{- 'product.general.sku' | t -}}</strong> <span class="product-meta__sku-number">{{ selected_variant.sku }}</span>
         </span>
+    </div>
       
     </div>
   

@@ -179,7 +179,7 @@
       {%- endif -%}
 
       <a href="{{ filtered_variant.url | default: product.url }}" class="product-item__title text--strong link">{{ product.title }}</a>
-
+{% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
       {%- if settings.product_price_position == 'before_title' -%}
         {{ vendor }}
       {%- endif -%}

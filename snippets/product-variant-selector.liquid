@@ -100,7 +100,7 @@
   </div>
 </div>
 
-{%- if vizient_discount != blank or memberpriceboolean -%}
+{%- if vizient_discount != blank -%}
   <div class='pp-price-container product-form__info-list' data-vizient="{{vizient}}" data-vizientdiscount='{{ vizient_discount }}' data-memberprice='{{ memberpriceboolean }}'>
     {%- if vizient_discount != blank -%}
     <div class="vizient-wrapper product-form__info-item">
@@ -140,6 +140,11 @@
       {%- capture option_name -%}{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
 
       {%- assign option_selector_type = 'select' -%}
+      {%- if option.values.size > 3  -%}
+        {%- assign option_selector_type = 'select' -%}
+        {%- else -%}
+        {%- assign option_selector_type = 'block' -%}
+      {%- endif -%}
 
       {%- if block.settings.color_mode != 'block' and block.settings.color_mode != 'dropdown' and color_label contains downcase_option -%}
         {%- comment -%}NOTE: even if the merchant is using the mode to display variant images, if ALL variant do not have an associated image, we fallback to color{%- endcomment -%}
@@ -164,7 +169,11 @@
             {%- assign option_selector_type = 'block' -%}
           {%- endif -%}
         {%- elsif block.settings.selector_mode == 'block' -%}
+          {%- if option.values.size > 2  -%}
+          {%- assign option_selector_type = 'select' -%}
+          {%- else -%}
           {%- assign option_selector_type = 'block' -%}
+          {%- endif -%}
         {%- endif -%}
       {%- endif -%}
 
@@ -220,7 +229,7 @@
             </div>
 
           {%- when 'block' -%}
-            <span class="product-form__option-name text--strong">{{ option.name }}:</span> <span class="product-form__selected-value">{{ option.selected_value }}</span>
+            <div class='flex flex-wrap' style='align-items: baseline'><span class="product-form__option-name text--strong">{{ option.name }}:</span> <span class="product-form__selected-value">{{ option.selected_value }}</span></div>
 
             <div class="block-swatch-list">
               {%- for value in option.values -%}
@@ -255,7 +264,7 @@
       <label class="product-form__option-name text--strong" for="product-select-{{ product.id }}">{{ 'product.form.variant' | t }}</label>
 
       <div class="select-wrapper select-wrapper--primary">
-        <select id="product-select-{{ product.id }}" name="id">
+        <select id="product-select-{{ product.id }}" name="id" data-productid="{{ product.id }}" {%if show_bundle_products%}data-has-bundle-products{%endif%}>
           {%- for variant in product.variants -%}
             <option {% if variant == selected_variant %}selected="selected"{% endif %} {% unless variant.available %}disabled="disabled"{% endunless %} value="{{ variant.id }}" data-sku="{{ variant.sku }}">{{ variant.title }} - {{ variant.price | money }}</option>
           {%- endfor -%}
@@ -264,7 +273,7 @@
     </div>
   </div>
 {%- else -%}
-  <input type="hidden" name="id" data-sku="{{ selected_variant.sku }}" value="{{ selected_variant.id }}">
+  <input {%if show_bundle_products%}data-has-bundle-products{%endif%} type="hidden" name="id" data-productid="{{ product.id }}" data-sku="{{ selected_variant.sku }}" value="{{ selected_variant.id }}" >
 {%- endunless -%}
 
 
@@ -321,16 +330,14 @@
         <div class="product-form__info-content">
           <div class="quantity-selector quantity-selector--product">
             <button type="button" class="quantity-selector__button" data-action="decrease-picker-quantity" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
-            <input name="quantity" aria-label="{{ 'product.form.quantity' | t }}" class="quantity-selector__value" inputmode="numeric" value="1" size="3">
+            <input {%if show_bundle_products%}data-has-bundle-products{%endif%} name="quantity" aria-label="{{ 'product.form.quantity' | t }}" class="quantity-selector__value" inputmode="numeric" value="1" size="3">
             <button type="button" class="quantity-selector__button" data-action="increase-picker-quantity" aria-label="{{ 'cart.items.increase_quantity' | t }}" title="{{ 'cart.items.increase_quantity' | t }}">{% render 'icon', icon: 'plus' %}</button>
           </div>
         </div>
       </div>
     {%- else -%}
-      <input type="hidden" name="quantity" value="1">
+      <input {%if show_bundle_products%}data-has-bundle-products{%endif%} type="hidden" name="quantity" value="1">
     {%- endif -%}
   {%- endif -%}
 </div>
 <div class='flex flex-wrap' style='margin-bottom: 25px;'>{%- render 'customfieldscodeforetd' -%}</div>
-
-

@@ -8650,7 +8650,7 @@ select option {
 }
 
 .product-meta__title {
-  margin-bottom: 14px;
+  margin: 12px 0;
 }
 
 /* When within a modal, we have to add an extra margin to prevent the title to overlap the close button */
@@ -8677,7 +8677,7 @@ select option {
 }
 
 .product-meta__vendor {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .product-meta__vendor + .product-meta__sku::before {
@@ -8690,6 +8690,10 @@ select option {
   top: -1px;
   background: var(--border-color);
   vertical-align: middle;
+}
+
+ .product-meta__sku {
+  padding-right: 6px;
 }
 
 .product-meta__share-buttons {
@@ -8791,7 +8795,9 @@ select option {
 }
 
 .product-form__selected-value {
-  padding-left: 2px;
+  padding-left: 4px;
+  margin-bottom: 7px;
+  line-height: 1.6;
   color: var(--mfi-link-blue);
   font-weight: 600;
   font-family: var(--heading-font-family);

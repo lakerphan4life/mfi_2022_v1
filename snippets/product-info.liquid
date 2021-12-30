@@ -90,7 +90,25 @@
           </ul>
         </div>
       {%- endif -%}
+
+{% if settings.product_show_bundle_products_popup and product.metafields.product["bundle_products"] != blank %}
+
+        {% render 'bundle-products-popup' %}    	
+
+        {%endif%}
+
+        {% if settings.product_show_bundle_products and product.metafields.product["bundle_products"] != blank %}
+        {% assign bundle_products_array = product.metafields.product["bundle_products"] | split: "," %}
+        {%
+            render 'bundle-products',
+        product: product,
+        selected_variant: selected_variant,
+        bundle_products_array: bundle_products_array,
+        suffix: "no-popup"
+        %}
+{% endif %}
     {%- endform -%}
+    {%- render 'pp-below-atc' -%}
   </div>
 
   {% comment %}

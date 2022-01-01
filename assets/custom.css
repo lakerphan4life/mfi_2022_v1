@@ -6,6 +6,7 @@ ul li {list-style-position: outside;}
   margin-left: 0px;
   cursor: pointer;
 }
+
 .iman__action-link svg {
   display: none;
 }

@@ -3176,6 +3176,7 @@
       value: function _attachListeners() {
         this.delegateElement.on('change', '.product-form__single-selector', this._onOptionChanged.bind(this));
         this.delegateElement.on('click', '[data-action="add-to-cart"]', this._addToCart.bind(this));
+        this.delegateElement.on('click', '[data-action="add-bundle-cart"]', this._addToBundleCart.bind(this));
       }
       /**
        * ---------------------------------------------------------------------------------------------------
@@ -3593,6 +3594,74 @@
         var formElement = this.element.querySelector('form[action*="/cart/add"]');
         fetch("".concat(window.routes.cartAddUrl, ".js"), {
           body: JSON.stringify(Form.serialize(formElement)),
+          credentials: 'same-origin',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
+
+          }
+        }).then(function (response) {
+          document.dispatchEvent(new CustomEvent('theme:loading:end'));
+
+          if (response.ok) {
+            target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
+
+            _this4.element.dispatchEvent(new CustomEvent('product:added', {
+              bubbles: true,
+              detail: {
+                variant: _this4.currentVariant,
+                quantity: parseInt(formElement.querySelector('[name="quantity"]').value)
+              }
+            })); // If we are in the context of quick view, we also force closing the modal
+
+
+            if (_this4.options['isQuickView'] && window.theme.cartType === 'drawer') {
+              document.dispatchEvent(new CustomEvent('modal:close'));
+            }
+
+            if (window.theme.cartType === 'message') {
+              _this4._showAlert(window.languages.productAdded, 'success', target);
+            }
+          } else {
+            response.json().then(function (content) {
+              _this4._showAlert(content['description'], 'error', target);
+            });
+          }
+        });
+        event.preventDefault();
+      }
+      /**
+       * ---------------------------------------------------------------------------------------------------
+       * INTERNAL CODE THAT HANDLE PRODUCT ADD TO CART
+       * ---------------------------------------------------------------------------------------------------
+       */
+
+      /**
+       * In order to have a small animation when the inventory bar is visible, we setup an intersection observer
+       */
+
+    }, {
+      key: "_addToBundleCart",
+      value: function _addToBundleCart(event, target) {
+        var _this4 = this;
+		var variant_id = event.target.attributes['data-variant-id'].value;
+        if (window.theme.cartType === 'page') {
+          return; // When using a cart type of page, we just simply redirect to the cart page
+        }
+
+        event.preventDefault(); // Prevent form to be submitted
+
+        event.stopPropagation(); // First, we switch the status of the button
+
+        target.setAttribute('disabled', 'disabled');
+        document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
+
+        var formElement = this.element.querySelector('form[action*="/cart/add"]');
+        fetch("".concat(window.routes.cartAddUrl, ".js"), {
+           body: JSON.stringify({
+            id: variant_id
+          }),
           credentials: 'same-origin',
           method: 'POST',
           headers: {

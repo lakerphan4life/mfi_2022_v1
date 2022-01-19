@@ -29,20 +29,20 @@
 {%- assign shipsfree = false -%}
 {%- endif -%}
 
-<div>{% render 'variant-package' %}</div>
+<div id='pp_belowatc_shipping' {%- if selected_variant.available -%}style='display: block;'{%- else -%}style='display: none'{%- endif -%}>{% render 'variant-package' %}</div>
 
 {%- if freight -%}
-<a class='modal-open-link modal-returnpolicy' style='margin-bottom: 0;' href='https://support.mfimedical.com/kb/policies/return-policy' target="_blank" onclick="ga('send', 'event', 'PDP Links', 'click', 'Return Policy Page');">
+<a class='modal-open-link link--accented modal-returnpolicy' style='margin-bottom: 0;' href='https://support.mfimedical.com/kb/policies/return-policy' target="_blank" onclick="ga('send', 'event', 'PDP Links', 'click', 'Return Policy Page');">
   <span style='font-size: 14px;'>Return Policy</span>
 </a>
 {%- else -%}
 {%- if nonreturnable != true -%}
 <!--   <span>&nbsp; + &nbsp;</span> -->
-<p class='modal-open-link modal-returns' style='margin-bottom: 0;' data-micromodal-trigger="modal-returns" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Returns Modal');">
+<p class='modal-open-link link--accented modal-returns' style='margin-bottom: 0;' data-micromodal-trigger="modal-returns" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Returns Modal');">
   <span style='font-size: 14px;'>Free Returns</span>
 </p>
 {%- else -%}
-<a class='modal-open-link modal-returnpolicy' style='margin-bottom: 0;' href='https://support.mfimedical.com/kb/policies/return-policy' target="_blank" onclick="ga('send', 'event', 'PDP Links', 'click', 'Return Policy Page');">
+<a class='modal-open-link link--accented modal-returnpolicy' style='margin-bottom: 0;' href='https://support.mfimedical.com/kb/policies/return-policy' target="_blank" onclick="ga('send', 'event', 'PDP Links', 'click', 'Return Policy Page');">
   <span style='font-size: 14px;'>Return Policy</span>
 </a>
 {%- endif -%}

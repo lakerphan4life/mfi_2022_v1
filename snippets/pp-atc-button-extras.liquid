@@ -1,0 +1,3 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+<span onclick="ga('send', 'event', 'PDP Links', 'click', 'Rewards Modal');" data-tooltip="Click for more information" class='modal-open-link' data-micromodal-trigger="modal-earnpoints">Earn <strong><span id='earnpoints'>{{ selected_variant.price | times: 0.01 | round  }}</span> points</strong> on this item</span>
+<br/>

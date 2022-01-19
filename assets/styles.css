@@ -1015,6 +1015,7 @@ html {
 
 .link {
   transition: color 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .link:hover,
@@ -1037,6 +1038,15 @@ html {
 
 .link--accented:hover {
   color: var(--mfi-link-blue-hover);
+  text-decoration: underline;
+}
+
+.link--accented-reverse {
+  color: var(--mfi-link-blue-hover);
+}
+
+.link--accented-reverse:hover {
+  color: var(--mfi-link-blue);
   text-decoration: underline;
 }
 
@@ -2425,8 +2435,8 @@ img.lazyload[data-sizes=auto] {
 .button {
   position: relative;
   display: inline-block;
-  padding: 0 30px;
-  line-height: 48px;
+  padding: 10px 30px;
+  line-height: 1.6;
   border-radius: 4px;
   text-align: center;
   font-weight: var(--text-font-bolder-weight);
@@ -2440,24 +2450,24 @@ img.lazyload[data-sizes=auto] {
 }
 
 .button--extra-small {
-  padding: 0 15px;
+  padding: 5px 15px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
-  line-height: 34px;
+  line-height: 1.4;
 }
 
 .button--small {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
-  line-height: 42px;
+  line-height: 1.4;
 }
 
 .button--large {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
-  line-height: 55px;
+  line-height: 1.8;
 }
 
 .button--extra-large {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 18px));
-  line-height: 60px;
+  line-height: 2;
 }
 
 .button--primary {
@@ -8781,7 +8791,7 @@ select option {
 }
 
 .product-form__option {
-  margin-bottom: 23px;
+  margin-bottom: 18px;
 }
 
 .no-js .product-form__option:not(.no-js) {
@@ -8806,8 +8816,8 @@ select option {
 .product-form__info-list {
   display: table;
   width: 100%;
-  margin: -22px 0 0px 0;
-  border-spacing: 0 22px;
+  margin: -18px 0 0px 0;
+  border-spacing: 0 18px;
 }
 
 .product-form__info-item {
@@ -8829,6 +8839,7 @@ select option {
 .product-form__info-content {
   display: table-cell;
   width: 100%;
+  line-height: 1.6;
 }
 
 .product-form__price-info {
@@ -8892,7 +8903,7 @@ shopify-payment-terms {
   }
 
   .product-form__variants {
-    margin-bottom: 26px;
+    margin-bottom: 18px;
   }
 
   .product-form__payment-container {
@@ -9026,6 +9037,7 @@ shopify-payment-terms {
     right: 0;
     width: calc(30% - 15px);
     height: 100%;
+    z-index: 5;
   }
 }
 
@@ -9133,7 +9145,7 @@ shopify-payment-terms {
 .price {
   font-weight: 500;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 24px));
-  color: var(--mfi-link-blue);
+  color: var(--product-on-sale-accent);
 }
 
 .price--highlight {

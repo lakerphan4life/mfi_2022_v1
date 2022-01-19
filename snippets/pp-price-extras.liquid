@@ -1,0 +1,49 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+<div class='ppextraspacer'></div>
+{%- if product.metafields.custom_fields["package"] == blank or product.metafields.custom_fields["package"] == "-" -%}
+
+{% assign machine = shop.metafields.custom_fields["variant_fields"] | split: "|" %}
+
+<div class="variant-custom-fields-wrapper" id='pp_extra_shipping' {%- if selected_variant.available -%}style='display: block;'{%- else -%}style='display: none'{%- endif -%}>
+  {%- for variant in product.variants -%}
+
+  <div class="variant-custom-fields" data-variant-id="{{ variant.id }}">
+<!--     <div class="variant__title"><h3> {{ variant.title }}<strong> Model</strong></h3></div> -->
+    <div class="variant__cf">
+    	{% if machine != blank %}
+    		{% for info in machine %}
+      			{% assign machine_item = info | split: '='%}
+      			{% assign human_name = machine_item[0] %}
+      			{% assign machine_name = machine_item[1] %}
+				{% if variant.metafields.custom_fields[machine_name] != blank %}
+      
+      			{% if machine_name == 'package' %}
+          			<span>
+                  		<span style='display: none;'>{{ human_name }}:</span>
+                  		{% if variant.metafields.custom_fields[machine_name] contains 'parcel' %}
+                          <div id='pp_price_extras_shipping' class='modal-open-link modal-freeshipping link--accented' style='margin-bottom: 0;' data-tooltip="Click for more information" data-micromodal-trigger="modal-freeshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Shipping Modal');">
+                            <span style='font-size: 14px; font-weight: 600;'>Free Standard Shipping</span>
+						  </div>
+                      	{% endif %}
+                      	
+      				</span>
+      			{% endif %}
+    			{% endif %}
+    		{% endfor %}
+		{% endif %}
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+{%- else -%}
+
+{% if product.metafields.custom_fields["package"] contains 'parcel' %}
+<div id='pp_extra_shipping' {%- if selected_variant.available -%}style='margin-bottom: 0;display: block;'{%- else -%}style='margin-bottom: 0;display: none'{%- endif -%} class='modal-open-link modal-freeshipping' data-tooltip="Click for more information" data-micromodal-trigger="modal-freeshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Shipping Modal');">
+  <span style='font-size: 14px;font-weight: 600;'>Free Standard Shipping</span>
+</div>
+{% endif %}
+
+{%- endif -%}
+
+
+<span onclick="ga('send', 'event', 'PDP Links', 'click', 'Rewards Modal');" data-tooltip="Click for more information" class='modal-open-link earnpointstext link--accented' data-micromodal-trigger="modal-earnpoints">Earn <strong><span id='earnpoints'>{{ selected_variant.price | times: 0.01 | round  }}</span> points</strong> on this item</span>

@@ -41,7 +41,7 @@
       let id = 'variant_leadtime_'+ eventID;
       let variantETD = document.getElementById(id).innerHTML;
       document.getElementById('etd').value = variantETD;
-      console.log(document.getElementById('etd').value);
+      // console.log(document.getElementById('etd').value);
     }
     
     setTimeout(variantEtdInput(), 1000);
@@ -55,11 +55,30 @@
     newPoints = newPrice/100;
     const cleanPoints = Math.round(newPoints);
     
-    if (newPrice > 100000){
-    document.getElementById('financemonthly').innerHTML = "$"+cleanPrice;
-    }
+    // if (newPrice > 100000){
+    // document.getElementById('financemonthly').innerHTML = "$"+cleanPrice;
+    // }
     
     document.getElementById('earnpoints').innerHTML = cleanPoints;
+
+    //Availability
+    if (event.detail.variant.available) {
+      // console.log("Variant is available");
+      document.getElementById('kf_condition').style.display = 'list-item';
+      document.getElementById('kf_warranty').style.display = 'list-item';
+      // document.querySelector('.ppextraspacer').style.display = 'block';
+      document.getElementById('pp_extra_shipping').style.display = 'block';
+      document.getElementById('pp_etd').style.display = 'flex';
+      document.getElementById('pp_belowatc_shipping').style.display = 'block';
+    } else {
+      // console.log("Variant is NOT available");
+      document.getElementById('kf_condition').style.display = 'none';
+      document.getElementById('kf_warranty').style.display = 'none';
+      // document.querySelector('.ppextraspacer').style.display = 'none';
+      document.getElementById('pp_extra_shipping').style.display = 'none';
+      document.getElementById('pp_etd').style.display = 'none';
+      document.getElementById('pp_belowatc_shipping').style.display = 'none';
+    }
   
   });
   

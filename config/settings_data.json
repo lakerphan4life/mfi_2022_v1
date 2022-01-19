@@ -210,6 +210,156 @@
           "show_section": false,
           "stack_mobile": false
         }
+      },
+      "imans-modals": {
+        "type": "imans-modals",
+        "blocks": {
+          "1588439070297": {
+            "type": "modal",
+            "settings": {
+              "title": "Free Shipping Policy",
+              "modalname": "freeshipping",
+              "content": "<p>This item ships for FREE! Enjoy free shipping on all items shipping parcel within the contiguous United States.<\/p>\n<p><\/p>\n<p>See our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/shipping-policy\" title=\"https:\/\/support.mfimedical.com\/kb\/policies\/shipping-policy\">Shipping Policy page<\/a> for more details.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591072388559": {
+            "type": "modal",
+            "settings": {
+              "title": "Vizient GPO Pricing",
+              "modalname": "vizient",
+              "content": "<p>MFI Medical is proud to offer Vizient GPO members exclusive pricing. We work closely with major manufacturers and partner with group purchasers to pass the savings on to our customers.<\/p>\n<h3 style=\"font-size: 20px;font-weight: bold;\">How to sign up for Vizient GPO Pricing<\/h3>\n<p>If you are a member of a GPO such as Vizient or would like to sign up to receive discounted pricing, please visit our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/group-purchasing-organizations-gpo-policy\" target=\"_blank\">Group Purchasing Organizations (GPO) page<\/a>  to enter your information. Our team will update your account and follow up.<\/p>\n<p>Visit our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/group-purchasing-organizations-gpo-policy\" target=\"_blank\">Policy page <\/a>for full details and information.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591072833225": {
+            "type": "modal",
+            "settings": {
+              "title": "Free Returns and Exchanges",
+              "modalname": "returns",
+              "content": "<div class=\"kf-content\" style=\"padding: 20px;\">\n<p>This product is eligible for free returns!<\/p>\n<p>Most items can be returned for free within 30 days of receipt (domestic shipped orders). With <a class=\"link link--accented\" href=\"https:\/\/returns.mfimedical.com\/\" title=\"https:\/\/returns.mfimedical.com\/\">MFI Medical’s Online Returns Center<\/a>, returning something is easier than ever. Simply fill out a request through the online portal and ship the items back free of charge to you.<\/p>\n<p>Please see our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/return-policy\" title=\"https:\/\/support.mfimedical.com\/kb\/policies\/return-policy\">Return &amp; Cancellation Policy<\/a> page for more details.<\/p>\n<\/div>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591074427577": {
+            "type": "modal",
+            "settings": {
+              "title": "Free Shipping Policy",
+              "modalname": "freeshippingheader",
+              "content": "<p>Enjoy FREE shipping on all items shipping parcel within the contiguous United States.<\/p>\n<p><\/p>\n<p>Orders shipping expedited, freight, or to outside the contiguous United States are subject to shipping charges.<\/p>\n<p>See our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/shipping-policy\" title=\"https:\/\/support.mfimedical.com\/kb\/policies\/shipping-policy\">Shipping Policy page<\/a> for more details.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591112659726": {
+            "type": "modal",
+            "settings": {
+              "title": "Dedicated Account Managers",
+              "modalname": "dedicated",
+              "content": "<p>All of our customers have access to dedicated account managers. Our team of account managers is ready to help you find the right item at the absolute best price available. To find your account manager, visit our <a class=\"link link--accented\" href=\"\/pages\/find-your-account-manager\" title=\"Find Your Account Manager\">Account Managers page<\/a> and click on your state.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591204134008": {
+            "type": "modal",
+            "settings": {
+              "title": "Freight Shipping Policy",
+              "modalname": "freightshipping",
+              "content": "<div class=\"kf-content\" style=\"padding: 20px;\">\n<ul class=\"kf-ul\"> \n  <li>\n<strong>Dock to Dock (Business Address) - $395 <\/strong>per oversized item. Requires a loading dock or forklift at the delivery site.<\/li>\n<li>\n<strong>Curbside - $495<\/strong> per oversized item. Item arrives secured to a pallet and delivered up to the curbside of address. Does not apply to Stryker and Hillrom beds.<\/li>\n<li>\n<strong>White Glove - $895 <\/strong> for 1st oversized item and <strong>$495<\/strong> for each additional oversized item. Includes unpacking and placement inside of address. Does not apply to Stryker or Hillrom beds shipping to residential addresses.<\/li>\n<li>\n<strong>White Glove (Stryker or Hillrom Bed to Residential Address) - $1,895<\/strong> per item. Includes unpacking and placement inside of residential address.<\/li>\n    <li><strong>Customer is responsible for ensuring that the items can be delivered in the desired room without issue.<\/strong><\/li>\n<li>Prices only apply to orders shipping within the contiguous United States. For oversized items shipping outside of the contiguous United States please <a class=\"link link--accented\" href=\"https:\/\/mfimedical.com\/pages\/find-your-account-manager\" title=\"https:\/\/mfimedical.com\/pages\/find-your-account-manager\">contact us<\/a> for a quote.<\/li>\n  <li> We are committed to staying on top of factors affecting shipping costs with our carriers. Please see full policy details, including information regarding increasing freight shipping charges, on our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/item-policies\/shipping-policy\" title=\"https:\/\/support.mfimedical.com\/kb\/item-policies\/shipping-policy\">Shipping Policy Page.<\/a>\n<\/li>\n  <\/ul>  <\/div>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591208105183": {
+            "type": "modal",
+            "settings": {
+              "title": "Price Match Guarantee",
+              "modalname": "pmg",
+              "content": "<p>We work very hard to ensure that we offer the absolute best prices online. If you find another online store that offers a lower price than us <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/price-match-policy\" target=\"_blank\">let us know!<\/a> We want you to be confident that you have found the absolute best price for the product you are purchasing. Visit our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/price-match-policy\" target=\"_blank\">Price Match suport page <\/a> to request a price match. <\/p>\n\n<p><strong>Already purchased?<\/strong> We will process a credit on your account if you made the purchase within 30 days.<\/p>\n<p><strong>Haven't purchased yet?<\/strong> We will match and try to beat our competitors' price.<\/p>\n \n <p>Our Price Match Policy has some limitations. For more information you may read our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/policies\/price-match-policy\" target=\"_blank\">policy page<\/a>.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591811914477": {
+            "type": "modal",
+            "settings": {
+              "title": "Sales Tax Exemption",
+              "modalname": "taxexempt",
+              "content": "<p>Are you or your business tax exempt? To provide tax exemption MFI Medical requires the following necessary information:<\/p>\n<ul>\n  <li>Territory\/state in which you wish to enroll<\/li>\n  <li>Entity type of your organization<\/li>\n  <li>Organization's address<\/li>\n  <li>Exemption numbers or exemption form (if applicable)<\/li>\n<\/ul>\n<h3 style=\"font-size: 20px;font-weight: bold;\">Request Tax Exemption \/ Request Tax Refund<\/h3>\n\n<p>To request tax exemption or a tax refund, as well as full details, including states and territories subject to tax, documentation requirements, federal government, and GSA purchases, please visit our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/sales-tax-and-exemption-policy\/sales-tax-and-exemption-policy\" title=\"https:\/\/support.mfimedical.com\/kb\/sales-tax-and-exemption-policy\/sales-tax-and-exemption-policy\">Sales Tax &amp; Exemption Policy Page<\/a>. We will review your information and email confirmation within 1-2 business days.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1591909082091": {
+            "type": "modal",
+            "settings": {
+              "title": "Estimated Delivery",
+              "modalname": "delivery",
+              "content": "<p>\nDelivery estimates are calculated by adding the estimated handling time and the estimated shipping time. Estimates apply to standard shipping options, not expedited or international shipping options. <\/p><p>For more information, please visit our <a href=\"https:\/\/support.mfimedical.com\/kb\/getting-started\/shipping-policy\" class=\"link link--accented\" target=\"_blank\">shipping policy page<\/a> or contact our office to speak with a member of our team.\n<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1594134655606": {
+            "type": "modal",
+            "settings": {
+              "title": "Warranty Policy",
+              "modalname": "warranty",
+              "content": "<div class=\"body\">\n        <p>Warranty information can be found on each product page under the <strong>Key Features<\/strong> and <strong>within the product description<\/strong>. Warranties will vary by product, condition (Factory New, Factory Refurbished, and Certified Refurbished) and by manufacturer.<\/p>\n\n<p>Please find the condition of the item you have below:<\/p>\n\n<ul>\n<li>\n<strong>Factory New Items<\/strong> are warrantied by and through the manufacturer. All warranty claims need be processed through the original manufacturer. MFI is available to assist with any manufacturer warranty claims.<\/li>\n<li>\n<strong>Factory Refurbished<\/strong> are warrantied by and through the manufacturer. All warranty claims need be processed through the original manufacturer. MFI is available to assist with any manufacturer warranty claims.<\/li>\n<li>\n<strong>Certified Refurbished<\/strong> items are warrantied through MFI Medical. Warranty claims should be submitted through our <a href=\"https:\/\/mfimedical.com\/pages\/service-ticket\" target=\"_blank\">online service ticket request<\/a>.\n\n<ul>\n<li>After expiration of warranty, MFI is available to assist with telephonic technical support free of charge. Please request service <a href=\"https:\/\/mfimedical.com\/pages\/service-ticket\" target=\"_blank\">here<\/a>.<\/li>\n<\/ul>\n<\/li>\n<\/ul>\n\n<p>We have a team of <a href=\"https:\/\/mfimedical.com\/pages\/contact-us\" target=\"_blank\">Customer Success<\/a> associates ready to assist with all warranty claims. If you are an <a href=\"https:\/\/mfimedical.com\/pages\/members\" target=\"_blank\">MFI Member<\/a>, please feel free to contact your account manager directly (you can <a href=\"https:\/\/mfimedical.com\/pages\/find-your-account-manager\">find your area manager here<\/a>).<\/p>\n\n<p>*Please note that shipping charges are usually not covered under warranty.<\/p>\n\n      <\/div>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1594149180055": {
+            "type": "modal",
+            "settings": {
+              "title": "Become a VIP member & earn points",
+              "modalname": "earnpoints",
+              "content": "<p>Earn points with every purchase at MFI Medical<\/p>\n<p>Points are redeemed at checkout for cash savings. Gold VIP members receive 1 point for every dollar spent. Platinum VIP members receive 2 points for every dollar spent. Diamond VIP members receive 3 points for every dollar spent. <\/p>\n<p><a href=\"https:\/\/mfimedical.com\/account\/register\" class=\"color-link\" target=\"_blank\">Create your online account today<\/a>, and get 250 points just for signing up!<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "1596034046700": {
+            "type": "modal",
+            "settings": {
+              "title": "Coronavirus (COVID-19) Update",
+              "modalname": "covid",
+              "content": "<p>Due to the global impact of the coronavirus outbreak, the demand for some personal protective equipment (PPE) is outpacing supply, and this item may be affected. Please note that actual lead times will vary during this time. We will continue to update the lead time for each product to show the most accurate estimates. Contact us if you have any specific inquiries<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "52af7ecb-cb82-4f90-97b2-8ddb2100dcb1": {
+            "type": "modal",
+            "settings": {
+              "title": "Certified Refurbished Items",
+              "modalname": "refurbished",
+              "content": "<p>Certified Refurbished equipment has been refurbished, tested, and internally certified by MFI to look and work like new. Including full diagnostic testing and replacement of parts and components.\n <\/p><p>With every purchase of a piece of certified refurbished equipment, you receive the MFI Certified Guarantee. With this guarantee, you are eligible for a replacement or refund within 30 days of receiving the product if it does not work as expected and the reliability of MFI’s team of BioMed engineers for technical support.<\/p>\n\n<p>For more information, please see our <a class=\"link link--accented\" href=\"https:\/\/support.mfimedical.com\/kb\/item-policies\/certified-refurbished-policy\" target=\"_blank\">Certified Refurbished Policy<\/a>.<\/p>",
+              "hidemodalcompletely": false
+            }
+          },
+          "6b90b1df-d007-4e9f-99e4-98bd691e63d2": {
+            "type": "modal",
+            "settings": {
+              "title": "Factory New Items",
+              "modalname": "factorynew",
+              "content": "<p>Factory New items are in new condition and warrantied through the manufacturer. These items may be delivered directly from the factory. MFI Medical is available to assist with any manufacturer warranty claims.<\/p>",
+              "hidemodalcompletely": false
+            }
+          }
+        },
+        "block_order": [
+          "1588439070297",
+          "1591072388559",
+          "1591072833225",
+          "1591074427577",
+          "1591112659726",
+          "1591204134008",
+          "1591208105183",
+          "1591811914477",
+          "1591909082091",
+          "1594134655606",
+          "1594149180055",
+          "1596034046700",
+          "52af7ecb-cb82-4f90-97b2-8ddb2100dcb1",
+          "6b90b1df-d007-4e9f-99e4-98bd691e63d2"
+        ],
+        "settings": {
+          "background_color": "#ffffff"
+        }
       }
     },
     "content_for_index": [

@@ -4,9 +4,198 @@
       "type": "main-404",
       "settings": {
       }
+    },
+    "1642622211bfb4636a": {
+      "type": "collection-list",
+      "blocks": {
+        "1642622211969a22a8-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "3m",
+            "link": ""
+          }
+        },
+        "1642622211969a22a8-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "abbott",
+            "link": ""
+          }
+        },
+        "1642622211969a22a8-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "allied-healthcare",
+            "link": ""
+          }
+        },
+        "1642622211969a22a8-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "coopersurgical",
+            "link": ""
+          }
+        },
+        "1642622211969a22a8-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "dynatronics",
+            "link": ""
+          }
+        },
+        "1642622211969a22a8-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "md-resource",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1642622211969a22a8-0",
+        "1642622211969a22a8-2",
+        "1642622211969a22a8-4",
+        "1642622211969a22a8-3",
+        "1642622211969a22a8-1",
+        "1642622211969a22a8-5"
+      ],
+      "settings": {
+        "title": "Shop by Brand",
+        "link_title": "View all",
+        "link": "shopify:\/\/pages\/brands",
+        "round_images": false,
+        "show_collection_title": true
+      }
+    },
+    "16426225651ddc1c15": {
+      "type": "collection-list",
+      "blocks": {
+        "1642622565cd1aeb71-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "ambulance-stretchers",
+            "link": ""
+          }
+        },
+        "1642622565cd1aeb71-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "autoclaves-and-sterilizers",
+            "link": ""
+          }
+        },
+        "1642622565cd1aeb71-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "ecg-ekg-machines",
+            "link": ""
+          }
+        },
+        "1642622565cd1aeb71-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "exam-tables",
+            "link": ""
+          }
+        },
+        "1642622565cd1aeb71-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "medical-chairs",
+            "link": ""
+          }
+        },
+        "1642622565cd1aeb71-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "ppe",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1642622565cd1aeb71-3",
+        "1642622565cd1aeb71-0",
+        "1642622565cd1aeb71-4",
+        "1642622565cd1aeb71-1",
+        "1642622565cd1aeb71-5",
+        "1642622565cd1aeb71-2"
+      ],
+      "settings": {
+        "title": "Shop by Equipment Type",
+        "link_title": "View all",
+        "link": "shopify:\/\/pages\/equipment-type",
+        "round_images": false,
+        "show_collection_title": true
+      }
+    },
+    "16426222023dbbf4b2": {
+      "type": "collection-list",
+      "blocks": {
+        "16426222027510bd74-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "cardiology",
+            "link": ""
+          }
+        },
+        "16426222027510bd74-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "dermatology",
+            "link": ""
+          }
+        },
+        "16426222027510bd74-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "neurology",
+            "link": ""
+          }
+        },
+        "f16f6812-2435-4f8e-a80e-8dcf74e01d14": {
+          "type": "collection",
+          "settings": {
+            "collection": "physical-therapy",
+            "link": ""
+          }
+        },
+        "16426222027510bd74-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "pulmonary",
+            "link": ""
+          }
+        },
+        "ae5a99d2-6b03-4bbc-9ed9-d3e96e86df67": {
+          "type": "collection",
+          "settings": {
+            "collection": "surgery",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16426222027510bd74-0",
+        "16426222027510bd74-3",
+        "16426222027510bd74-1",
+        "f16f6812-2435-4f8e-a80e-8dcf74e01d14",
+        "16426222027510bd74-2",
+        "ae5a99d2-6b03-4bbc-9ed9-d3e96e86df67"
+      ],
+      "settings": {
+        "title": "Shop by Specialty",
+        "link_title": "View all",
+        "link": "shopify:\/\/pages\/specialty",
+        "round_images": false,
+        "show_collection_title": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1642622211bfb4636a",
+    "16426225651ddc1c15",
+    "16426222023dbbf4b2"
   ]
 }

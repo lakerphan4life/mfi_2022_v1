@@ -1,3 +1,6 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+
 {% assign kf_1 = product.metafields.custom_fields["key_feature_1"] %}
 {% assign kf_2 = product.metafields.custom_fields["key_feature_2"] %}
 {% assign kf_3 = product.metafields.custom_fields["key_feature_3"] %}
@@ -55,14 +58,15 @@
 
       {% if volume %}<li><span class='text--strong'>Volume: </span>{{ volume }}</li>{% endif %}
       {% if technology %}<li><span class='text--strong'>Technology: </span>{{ technology }}</li>{% endif %}
-      <li>
+      
+      <li id='kf_condition'{%- if selected_variant.available -%}{%- else -%} style='display: none'{%- endif -%}>
         <span class='text--strong'>Condition:</span> 
-        
         {% render 'variant-condition' %}
-        
       </li>
-      <li>
-        <span class='text--strong' data-tooltip="Click for more information" data-micromodal-trigger="modal-warranty">Warranty:</span> {% render 'variant-warranty' %}
+
+      <li id='kf_warranty'{%- if selected_variant.available -%}{%- else -%} style='display: none'{%- endif -%}>
+        <span class='text--strong' data-tooltip="Click for more information" data-micromodal-trigger="modal-warranty">Warranty:</span> 
+        {% render 'variant-warranty' %}
       </li>
 
       {% render 'jumpto_pdp_v2' %}

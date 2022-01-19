@@ -2,23 +2,14 @@
   "sections": {
     "main": {
       "type": "main-blog",
-      "blocks": {
-        "newsletter": {
-          "type": "newsletter",
-          "settings": {
-          }
-        },
-        "social-media": {
-          "type": "social_media",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "newsletter",
-        "social-media"
-      ],
       "settings": {
+        "articles_per_page": 12,
+        "highlight_first_article": false,
+        "show_tags": false,
+        "show_category": false,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": true
       }
     }
   },

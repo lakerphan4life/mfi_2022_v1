@@ -75,11 +75,53 @@
           {%- if product.price < product.compare_at_price -%}
             {%- if product.price_varies -%}
               {%- if settings.currency_code_enabled -%}
-                {%- capture price_min -%}{{ product.price_min | money_with_currency }}{%- endcapture -%}
-                {%- capture price_max -%}{{ product.price_max | money_with_currency }}{%- endcapture -%}
+                
+                {%- capture price_min -%}
+                  {%- assign cleanPriceMin = product.price_min | money_with_currency | split:'.' -%}
+                  {%- for pricePart in cleanPriceMin -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endcapture -%}
+
+                {%- capture price_max -%}
+                  {%- assign cleanPriceMax = product.price_max | money_with_currency | split:'.' -%}
+                  {%- for pricePart in cleanPriceMax -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endcapture -%}
+                
               {%- else -%}
-                {%- capture price_min -%}{{ product.price_min | money }}{%- endcapture -%}
-                {%- capture price_max -%}{{ product.price_max | money }}{%- endcapture -%}
+
+                {%- capture price_min -%}
+                  {%- assign cleanPriceMin = product.price_min | money | split:'.' -%}
+                  {%- for pricePart in cleanPriceMin -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endcapture -%}
+
+                {%- capture price_max -%}
+                  {%- assign cleanPriceMax = product.price_max | money | split:'.' -%}
+                  {%- for pricePart in cleanPriceMax -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endcapture -%}
+                
               {%- endif -%}
 
               <span class="price price--highlight">
@@ -91,9 +133,23 @@
                 <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
 
                 {%- if settings.currency_code_enabled -%}
-                  {{- product.compare_at_price_min | money_with_currency -}}
+                  {%- assign cleanPriceCompare = product.compare_at_price_min | money | split:'.' -%}
+                  {%- for pricePart in cleanPriceCompare -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- else -%}
-                  {{- product.compare_at_price_min | money -}}
+                  {%- assign cleanPriceCompare = product.compare_at_price_min | money | split:'.' -%}
+                  {%- for pricePart in cleanPriceCompare -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- endif -%}
               </span>
             {%- else -%}
@@ -101,28 +157,94 @@
                 <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
 
                 {%- if settings.currency_code_enabled -%}
-                  {{- product.price | money_with_currency -}}
+                  {%- assign cleanPrice = product.price | money | split:'.' -%}
+                  {%- for pricePart in cleanPrice -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- else -%}
-                  {{- product.price | money -}}
+                  {%- assign cleanPrice = product.price | money | split:'.' -%}
+                  {%- for pricePart in cleanPrice -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- endif -%}
               </span>
 
               <span class="price price--compare">
                 <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
                 {%- if settings.currency_code_enabled -%}
-                  {{- product.compare_at_price | money_with_currency -}}
+                  {%- assign cleanPriceCompare = product.compare_at_price_min | money | split:'.' -%}
+                  {%- for pricePart in cleanPriceCompare -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- else -%}
-                  {{- product.compare_at_price | money -}}
+                  {%- assign cleanPriceCompare = product.compare_at_price_min | money | split:'.' -%}
+                  {%- for pricePart in cleanPriceCompare -%}
+                    {%- if forloop.last -%}
+                      <span class="cents">{{- pricePart -}}</span>
+                    {%- elsif pricePart != blank -%}
+                      {{- pricePart -}}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- endif -%}
               </span>
             {%- endif -%}
           {%- elsif product.price_varies -%}
             {%- if settings.currency_code_enabled -%}
-              {%- capture price_min -%}{{ product.price_min | money_with_currency }}{%- endcapture -%}
-              {%- capture price_max -%}{{ product.price_max | money_with_currency }}{%- endcapture -%}
+              {%- capture price_min -%}
+                {%- assign cleanPriceMin = product.price_min | money | split:'.' -%}
+                {%- for pricePart in cleanPriceMin -%}
+                  {%- if forloop.last -%}
+                    <span class="cents">{{- pricePart -}}</span>
+                  {%- elsif pricePart != blank -%}
+                    {{- pricePart -}}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+
+              {%- capture price_max -%}
+                {%- assign cleanPriceMax = product.price_max | money | split:'.' -%}
+                {%- for pricePart in cleanPriceMax -%}
+                  {%- if forloop.last -%}
+                    <span class="cents">{{- pricePart -}}</span>
+                  {%- elsif pricePart != blank -%}
+                    {{- pricePart -}}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
             {%- else -%}
-              {%- capture price_min -%}{{ product.price_min | money }}{%- endcapture -%}
-              {%- capture price_max -%}{{ product.price_max | money }}{%- endcapture -%}
+              {%- capture price_min -%}
+                {%- assign cleanPriceMin = product.price_min | money | split:'.' -%}
+                {%- for pricePart in cleanPriceMin -%}
+                  {%- if forloop.last -%}
+                    <span class="cents">{{- pricePart -}}</span>
+                  {%- elsif pricePart != blank -%}
+                    {{- pricePart -}}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+
+              {%- capture price_max -%}
+                {%- assign cleanPriceMax = product.price_max | money | split:'.' -%}
+                {%- for pricePart in cleanPriceMax -%}
+                  {%- if forloop.last -%}
+                    <span class="cents">{{- pricePart -}}</span>
+                  {%- elsif pricePart != blank -%}
+                    {{- pricePart -}}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
             {%- endif -%}
 
             <span class="price">
@@ -133,9 +255,23 @@
             <span class="price">
               <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
               {%- if settings.currency_code_enabled -%}
-                {{- product.price | money_with_currency -}}
+                {%- assign cleanPrice = product.price | money | split:'.' -%}
+                {%- for pricePart in cleanPrice -%}
+                  {%- if forloop.last -%}
+                    <span class="cents">{{- pricePart -}}</span>
+                  {%- elsif pricePart != blank -%}
+                    {{- pricePart -}}
+                  {%- endif -%}
+                {%- endfor -%}
               {%- else -%}
-                {{- product.price | money -}}
+                {%- assign cleanPrice = product.price | money | split:'.' -%}
+                {%- for pricePart in cleanPrice -%}
+                  {%- if forloop.last -%}
+                    <span class="cents">{{- pricePart -}}</span>
+                  {%- elsif pricePart != blank -%}
+                    {{- pricePart -}}
+                  {%- endif -%}
+                {%- endfor -%}
               {%- endif -%}
             </span>
           {%- endif -%}

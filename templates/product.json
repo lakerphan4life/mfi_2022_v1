@@ -19,7 +19,7 @@
             "color_mode": "dropdown",
             "show_quantity_selector": true,
             "show_taxes_included": false,
-            "show_inventory_quantity": true,
+            "show_inventory_quantity": false,
             "low_inventory_threshold": 3
           }
         },
@@ -58,6 +58,22 @@
         "carousel_effect": "fade"
       }
     },
+    "16320114352b37af49": {
+      "type": "apps",
+      "blocks": {
+        "652166fd-08a0-4335-aa1d-d9bdcb61685e": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "652166fd-08a0-4335-aa1d-d9bdcb61685e"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -72,19 +88,50 @@
         "show_quick_buy": false
       }
     },
-    "16320114352b37af49": {
-      "type": "apps",
+    "164131707663249c19": {
+      "type": "text-with-icons",
       "blocks": {
-        "652166fd-08a0-4335-aa1d-d9bdcb61685e": {
-          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "1641317076b508dda2-0": {
+          "type": "item",
           "settings": {
+            "icon": "bi-delivery",
+            "title": "Free delivery worldwide",
+            "content": "<p>Short content about your store<\/p>"
+          }
+        },
+        "1641317076b508dda2-1": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-returns",
+            "title": "Satisfied or refunded",
+            "content": "<p>Short content about your store<\/p>"
+          }
+        },
+        "1641317076b508dda2-2": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "title": "Top-notch support",
+            "content": "<p>Short content about your store<\/p>"
+          }
+        },
+        "1641317076b508dda2-3": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-secure-payment",
+            "title": "Secure payments",
+            "content": "<p>Short content about your store<\/p>"
           }
         }
       },
       "block_order": [
-        "652166fd-08a0-4335-aa1d-d9bdcb61685e"
+        "1641317076b508dda2-0",
+        "1641317076b508dda2-1",
+        "1641317076b508dda2-2",
+        "1641317076b508dda2-3"
       ],
       "settings": {
+        "stack_mobile": false
       }
     }
   },
@@ -92,6 +139,7 @@
     "main",
     "16320114352b37af49",
     "product-recommendations",
-    "recently-viewed-products"
+    "recently-viewed-products",
+    "164131707663249c19"
   ]
 }

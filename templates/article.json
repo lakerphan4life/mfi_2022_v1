@@ -6,19 +6,24 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-          }
-        },
-        "social-media": {
-          "type": "social_media",
-          "settings": {
+            "title": "Subscribe to Updates",
+            "content": "<p>Sign up to get emails about exclusive deals, special offers, product updates, and more!<\/p>",
+            "subtext": "Unsubscribe at any time",
+            "background": "#f4f7f8",
+            "text": "#455159"
           }
         }
       },
       "block_order": [
-        "newsletter",
-        "social-media"
+        "newsletter"
       ],
       "settings": {
+        "show_category": false,
+        "show_author": true,
+        "show_date": true,
+        "show_share_buttons": false,
+        "show_tags": false,
+        "show_gravatar": false
       }
     }
   },

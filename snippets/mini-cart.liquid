@@ -59,7 +59,7 @@
               <div class="mini-cart__item-wrapper">
                 <div class="mini-cart__product-info">
                   {%- unless line_item.product.tags contains '__gift' -%}
-                    {%- if settings.show_vendor -%}
+                    <!-- {%- if settings.show_vendor -%}
                       {%- assign vendor_handle = line_item.product.vendor | handle -%}
                       {%- assign collection_for_vendor = collections[vendor_handle] -%}
 
@@ -68,7 +68,7 @@
                         {%- else -%}
                         <a class="mini-cart__product-vendor link" href="{{ line_item.product.vendor | url_for_vendor }}">{{ line_item.product.vendor }}</a>
                       {%- endunless -%}
-                    {%- endif -%}
+                    {%- endif -%} -->
                   {%- endunless -%}
 
                   <a href="{{ line_item.url }}" class="mini-cart__product-title text--strong link">{{ line_item.title }}</a>
@@ -196,9 +196,9 @@
 
         <div class="mini-cart__button-container">
           <div class="button-group button-group--loose button-group--fit">
-            <a href="{{ routes.cart_url }}" class="button button--secondary">{{ 'cart.general.view_cart' | t }}</a>
+            <a href="{{ routes.cart_url }}" class="button button--ternary">{{ 'cart.general.view_cart' | t }}</a>
             {%- if settings.cart_show_checkout_button -%}
-              <button type="submit" name="checkout" class="button button--primary">{{ 'cart.general.checkout' | t }}</button>
+              <button type="submit" name="checkout" class="button button--primary" style='min-width: 65%;'>Proceed to {{ 'cart.general.checkout' | t }}</button>
             {%- endif -%}
           </div>
         </div>

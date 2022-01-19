@@ -7,12 +7,80 @@
     },
     "contact-form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
+        "form_heading": "",
+        "show_store_info": false,
+        "store_heading": "Find us",
+        "store_info": ""
+      }
+    },
+    "1642623179672e6516": {
+      "type": "quick-links",
+      "blocks": {
+        "1642623179ca454424-0": {
+          "type": "link",
+          "settings": {
+            "title": "Support Center",
+            "link": "https:\/\/support.mfimedical.com\/"
+          }
+        },
+        "1642623179ca454424-2": {
+          "type": "link",
+          "settings": {
+            "title": "FAQ",
+            "link": "https:\/\/support.mfimedical.com\/kb\/getting-started\/faq"
+          }
+        },
+        "1642623179ca454424-1": {
+          "type": "link",
+          "settings": {
+            "title": "Shipping Policy",
+            "link": "https:\/\/support.mfimedical.com\/kb\/policies\/shipping-policy"
+          }
+        },
+        "1642623179ca454424-4": {
+          "type": "link",
+          "settings": {
+            "title": "Track an Order",
+            "link": "https:\/\/tracking.mfimedical.com\/"
+          }
+        },
+        "1642623179ca454424-3": {
+          "type": "link",
+          "settings": {
+            "title": "Return Policy",
+            "link": "https:\/\/support.mfimedical.com\/kb\/getting-started\/return-policy"
+          }
+        },
+        "1642623179ca454424-5": {
+          "type": "link",
+          "settings": {
+            "title": "Submit a Return",
+            "link": "https:\/\/returns.mfimedical.com\/"
+          }
+        }
+      },
+      "block_order": [
+        "1642623179ca454424-0",
+        "1642623179ca454424-2",
+        "1642623179ca454424-1",
+        "1642623179ca454424-4",
+        "1642623179ca454424-3",
+        "1642623179ca454424-5"
+      ],
+      "settings": {
+        "title": "",
+        "expand_items": true,
+        "show_desktop": true,
+        "link_title": "",
+        "link": ""
       }
     }
   },
   "order": [
     "main",
-    "contact-form"
+    "contact-form",
+    "1642623179672e6516"
   ]
 }

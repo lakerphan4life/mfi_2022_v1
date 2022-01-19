@@ -60,6 +60,8 @@
         {%- endcase -%}
       {%- endfor -%}
 
+      <!-- {%- render 'pp-atc-button-extras' -%} -->
+
       {%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 
       {%- if product_meta_block != blank and product_meta_block.settings.show_share_buttons -%}

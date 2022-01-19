@@ -30,6 +30,28 @@
 {% endfor %}
 
 <div class="product-form__info-list">
+
+  <!-- LIST PRICE  -->
+  {%- if selected_variant.compare_at_price > selected_variant.price -%}
+  <!-- <div class="product-form__info-item">
+    <span class="product-form__info-title text--strong" style='font-size: 11px; opacity: 0.6;'>List price:</span>
+    <div class="product-form__info-content" role="region" aria-live="polite">
+      <div class="price-list">
+          <span class="price price--compare" style='top:0; font-size: 11px;'>
+            <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
+
+            {%- if settings.currency_code_enabled -%}
+              {{- selected_variant.compare_at_price | money_with_currency -}}
+            {%- else -%}
+              {{- selected_variant.compare_at_price | money -}}
+            {%- endif -%}
+          </span>
+      </div>
+    </div>
+  </div> -->
+  {%- endif -%} 
+
+  <!-- MAIN PRICE -->
   <div class="product-form__info-item">
     <span class="product-form__info-title text--strong">{{ 'product.form.price' | t }}:</span>
 
@@ -81,7 +103,9 @@
         </div>
       </div>
 
-      {{- form | payment_terms -}}
+      <!-- {{- form | payment_terms -}} -->
+
+      {%- render 'pp-price-extras' -%}
 
       {%- if block.settings.show_taxes_included -%}
         {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
@@ -250,7 +274,7 @@
             <div class="select-wrapper select-wrapper--primary">
               {%- render 'icon', icon: 'arrow-bottom' -%}
 
-              <select class="product-form__single-selector" name="{{ option_name }}" id="{{ option_name }}" data-option-position="{{ option.position }}">
+              <select class="product-form__single-selector rc-widget-variant" name="{{ option_name }}" id="{{ option_name }}" data-option-position="{{ option.position }}">
                 {%- for value in option.values -%}
                   <option value="{{ value | escape }}" {% if value == option.selected_value %}selected="selected"{% endif %}>{{ value }}</option>
                 {%- endfor -%}
@@ -340,4 +364,4 @@
     {%- endif -%}
   {%- endif -%}
 </div>
-<div class='flex flex-wrap' style='margin-bottom: 25px;'>{%- render 'customfieldscodeforetd' -%}</div>
+<div class='flex flex-wrap ai-c' id='pp_etd' style='margin-bottom: 25px; {%- if selected_variant.available -%}display: flex;{%- else -%}display: none;{%- endif -%}'>{%- render 'customfieldscodeforetd' -%}</div>

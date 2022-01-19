@@ -1,6 +1,13 @@
 /* RANDOM CSS STYLES */
 ul li {list-style-position: outside;}
 
+#shopify-section-header {
+  z-index: 6 !important;
+}
+
+.hide {
+  display: none !important;
+}
 /* LINKS */
 .iman__action-link {
   margin-left: 0px;
@@ -44,7 +51,7 @@ ul li {list-style-position: outside;}
   transition: color 0.2s ease-in-out;
   -webkit-text-decoration: none;
           text-decoration: none;
-  cursor: pointer;
+  cursor: help;
 }
 
 [data-tooltip] {
@@ -61,6 +68,16 @@ ul li {list-style-position: outside;}
 
 .easytabs-container .easytabs-contents .easytabs-content-holder, .easytabs-container .easytabs-contents .easytabs-content-holder a:hover {
   color: var(--link-color-hover);
+}
+
+
+.link--accented-reverse {
+  color: var(--mfi-link-blue-hover);
+}
+
+.link--accented-reverse:hover {
+  color: var(--mfi-link-blue);
+  text-decoration: underline;
 }
 
 /* IMAN FLEX CLASSES */
@@ -381,6 +398,7 @@ div.rc_widget__option--active {
 
 .rc_container {
   border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 1.5em !important;
 }
 
 .rc_popup__label {
@@ -417,12 +435,17 @@ div.rc_popup__hover {
 }
 
 /* PDP Custom CSS Styles */
+
 .product-gallery-meta {
   padding: 12px 0;
 }
 shopify-payment-terms {
   line-height: 1.6;
   font-size: 13px;
+}
+
+.earnpointstext {
+  font-size: 14px;
 }
 
 @media screen and (min-width: 641px) {
@@ -897,6 +920,7 @@ button[data-micromodal-close] {
 }
 .bundle-section {
   position: relative;
+  padding-top: 12px;
 }
 .warrantyitem {
   padding: 0px 8px;
@@ -1186,4 +1210,98 @@ span.compare-price {
 .grecaptcha-badge {
   opacity: 0 !important;
   display: none !important;
+}
+
+/* COLLECTION PAGE CSS */
+.product-item .cents {
+  font-size: 13px;
+  position: absolute;
+}
+
+.product-item .price--compare .cents {
+  font-size: 9px;
+  text-decoration: line-through;
+}
+
+.product-item .price--compare {
+  padding-left: 8px;
+}
+
+.product-item__info-inner .jdgm-widget.jdgm-widget {
+  margin-bottom: 12px;
+  margin-top: -8px;
+  font-size: 13px;
+}
+
+/* PROMO PAGE  */
+/* Promo page */
+.promoblock:not(:first-child) {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+.promoblock {
+  padding: 30px 10px;
+ /* border-bottom: 1px solid rgba(0,0,0,.1);
+  */
+}
+.promo-image {
+  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .promo-image {
+    padding: 10px 50px 10px 10px;
+    width: 30%;
+ }
+}
+.promotitle h3 {
+  margin: 0 0;
+  padding: 0 0 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.promo-content {
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .promo-content {
+    width: 75%;
+ }
+}
+.promodetails {
+  padding-bottom: 10px;
+}
+.promodetails .promobuttons a {
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+@media screen and (min-width: 1000px) {
+  .promodetails .promobuttons a {
+    max-width: calc(50% - 20px);
+ }
+}
+.promodetail-left {
+  width: 100%;
+  padding: 0 0 10px;
+}
+@media screen and (min-width: 1000px) {
+  .promodetail-left {
+    width: calc(70% - 20px);
+    padding: 0 40px 0 0;
+ }
+}
+.promodetail-right {
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .promodetail-right {
+    width: calc(30% - 10px);
+ }
 }

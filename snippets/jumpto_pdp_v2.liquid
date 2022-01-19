@@ -17,20 +17,21 @@
         if (tabArr[i].classList.contains('easytabs-active')) {
           var currentTab = tabArr[i];
         }
-        const buttonArrayText = tabArr[i].dataset.etHandle.slice(5);
+        let buttonArrayText = tabArr[i].dataset.etHandle.slice(5);
+        buttonArrayText = buttonArrayText.replace(/-/g, ' ');
         const buttonElement = document.createElement('span');
         if (i === tabArr.length - 1) {
           buttonElement.innerHTML = buttonArrayText;
         } else {
           buttonElement.innerHTML = buttonArrayText + ", ";
         }
-        buttonElement.classList.add('modal-open-link');
+        buttonElement.classList.add('link', 'link--accented');
         buttonElement.setAttribute("onclick","ga('send', 'event', 'PDP Links', 'click', 'Jump to link');");
         buttonElement.id = 'tab_' + i.toString();
         buttonArray.push(buttonElement);
       }
       
-      console.log("buttonArray is " + buttonArray);
+      // console.log("buttonArray is " + buttonArray);
       
       var jumpToText = document.getElementById('jumptotext');
       

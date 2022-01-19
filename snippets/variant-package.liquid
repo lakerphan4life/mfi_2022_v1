@@ -18,12 +18,12 @@
           			<span>
                   		<span style='display: none;'>{{ human_name }}:</span>
                   		{% if variant.metafields.custom_fields[machine_name] contains 'parcel' %}
-                      		<p class='modal-open-link modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freeshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Shipping Modal');">
+                      		<p class='modal-open-link link--accented modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freeshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Shipping Modal');">
                               <span style='font-size: 14px;'>Free Standard Shipping</span>
                             </p>
                       	
                       	{% elsif variant.metafields.custom_fields[machine_name] contains 'freight' %}
-                          <p class='modal-open-link modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freightshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Freight Modal');">
+                          <p class='modal-open-link link--accented modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freightshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Freight Modal');">
                             <span style='font-size: 14px;'>Freight Shipping Policy</span>
                           </p>
                       	{% else %}
@@ -42,11 +42,11 @@
 {%- else -%}
 
 {% if product.metafields.custom_fields["package"] contains 'parcel' %}
-<p class='modal-open-link modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freeshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Shipping Modal');">
+<p class='modal-open-link link--accented modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freeshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Free Shipping Modal');">
   <span style='font-size: 14px;'>Free Standard Shipping</span>
 </p>
 {% elsif product.metafields.custom_fields["package"] contains 'freight' %}
-<p class='modal-open-link modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freightshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Freight Modal');">
+<p class='modal-open-link link--accented modal-freeshipping' style='margin-bottom: 0;' data-micromodal-trigger="modal-freightshipping" onclick="ga('send', 'event', 'PDP Links', 'click', 'Freight Modal');">
   <span style='font-size: 14px;'>Freight Shipping Policy</span>
 </p>
 {% else %}

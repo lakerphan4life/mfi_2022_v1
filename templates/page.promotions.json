@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "promotions": {
+      "type": "promotions-page-template",
+      "blocks": {
+        "0af1c72a-0455-45a2-bdc4-3f88caf8f2d9": {
+          "type": "value",
+          "settings": {
+            "hide": false,
+            "title": "10% Off Dopplers and ABI Systems from Summit Doppler",
+            "collection": "coopersurgical",
+            "promo_details": "10% OFF New and Certified Pre-Owned Dopplers and ABI Systems from Summit Doppler",
+            "redemption": "Discount automatically applied at checkout. Call to redeem <a class=\"link link--accented\" href=\"tel:+18006331558\">(800) 633-1558<\/a>.",
+            "promocode": "",
+            "expiration": "March 31, 2022",
+            "id": "Sale_10% Off Dopplers and ABI Systems from Summit Doppler Sale",
+            "button_text": "View Sale Items",
+            "buttontwo_link": "",
+            "button2_text": "Redeem Rebate",
+            "flyerlink": ""
+          }
+        }
+      },
+      "block_order": [
+        "0af1c72a-0455-45a2-bdc4-3f88caf8f2d9"
+      ],
+      "settings": {
+        "title": "Promotions"
+      }
+    }
+  },
+  "order": [
+    "promotions"
+  ]
+}

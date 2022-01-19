@@ -1,3 +1,5 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
 <div class='bundle-section'>
 {% for _bundle_product_values in bundle_products_array %}
   {% assign _bundle_product_array = _bundle_product_values | split: ":" %}

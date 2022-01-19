@@ -17,7 +17,7 @@
     
     var id = variant_leadtime_{{ selected_variant.id }};
     var standardShip = {{ product.metafields.custom_fields["variant_leadtimeinteger"] }} + 1;
-    console.log("standardShip = " + standardShip);
+    // console.log("standardShip = " + standardShip);
 
     if (standardShip < 7) {
       range = 9;
@@ -27,7 +27,7 @@
       {% break %}{% endif %}
       {% endfor %}
 
-      console.log("actual range = " + range);
+      // console.log("actual range = " + range);
 
     } else if (standardShip >= 7 && standardShip < 8) {
       range = parcelrange;
@@ -37,7 +37,7 @@
       {% break %}{% endif %}
       {% endfor %}
 
-      console.log("actual range = " + range);
+      // console.log("actual range = " + range);
 
     } else if (standardShip >= 8 && standardShip < 23)  {
       range = parcelrange;
@@ -47,7 +47,7 @@
       {% break %}{% endif %}
       {% endfor %}
 
-      console.log("actual range = " + range);
+      // console.log("actual range = " + range);
 
     } else if (standardShip >= 23 && standardShip < 70) {
       range = parcelrange;
@@ -57,7 +57,7 @@
       {% break %}{% endif %}
       {% endfor %}
 
-      console.log("actual range = " + range);
+      // console.log("actual range = " + range);
 
     } else if (standardShip >= 70 && standardShip <= 106) {
 //       standardShip = 70
@@ -68,7 +68,7 @@
       {% break %}{% endif %}
       {% endfor %}
 
-      console.log("actual range = " + range);
+      // console.log("actual range = " + range);
 
     } else {
       range = 50;
@@ -82,9 +82,9 @@
     var formatStartRange = standardDate.format('MMMM Do');
     var formatEndRange = endStandardRange.format('MMMM Do');
 
-    console.log("etd range = " + formatStartRange + " to " + formatEndRange);
+    // console.log("etd range = " + formatStartRange + " to " + formatEndRange);
     var actualEtd = formatStartRange + " to " + formatEndRange;
-    console.log(actualEtd);
+    // console.log(actualEtd);
     var placement = document.getElementById('variant_leadtime_{{ selected_variant.id }}');
                                             placement.innerHTML = actualEtd;
 
@@ -150,7 +150,7 @@
           
           var id = variant_leadtime_{{ variant.id }};
           var standardShip = {{ variant.metafields.custom_fields[machine_name] }} + 1;
-          console.log("standardShip = " + standardShip);
+          // console.log("standardShip = " + standardShip);
 
           if (standardShip < 7) {
             range = 9;
@@ -160,7 +160,7 @@
             {% break %}{% endif %}
             {% endfor %}
             
-            console.log("actual range = " + range);
+            // console.log("actual range = " + range);
 
           } else if (standardShip >= 7 && standardShip < 8) {
 //             range = 6;
@@ -171,7 +171,7 @@
             {% break %}{% endif %}
             {% endfor %}
             
-            console.log("actual range = " + range);
+            // console.log("actual range = " + range);
 
           } else if (standardShip >= 8 && standardShip < 23)  {
 //             range = 13;
@@ -182,7 +182,7 @@
             {% break %}{% endif %}
             {% endfor %}
             
-            console.log("actual range = " + range);
+            // console.log("actual range = " + range);
 
           } else if (standardShip >= 23 && standardShip < 70) {
 //             range = 20;
@@ -193,7 +193,7 @@
             {% break %}{% endif %}
             {% endfor %}
             
-            console.log("actual range = " + range);
+            // console.log("actual range = " + range);
 
           } else if (standardShip >= 70 && standardShip <= 106) {
             standardShip = 70
@@ -205,7 +205,7 @@
             {% break %}{% endif %}
             {% endfor %}
             
-            console.log("actual range = " + range);
+            // console.log("actual range = " + range);
 
           } else {
             range = 50;
@@ -219,9 +219,9 @@
           var formatStartRange = standardDate.format('MMMM Do');
           var formatEndRange = endStandardRange.format('MMMM Do');
 
-          console.log("etd range = " + formatStartRange + " to " + formatEndRange);
+          // console.log("etd range = " + formatStartRange + " to " + formatEndRange);
           var actualEtd = formatStartRange + " to " + formatEndRange;
-          console.log(actualEtd);
+          // console.log(actualEtd);
           var placement = document.getElementById('variant_leadtime_{{ variant.id }}');
                                                   placement.innerHTML = actualEtd;
 
